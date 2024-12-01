@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>EthanLei</title>
-    <link>http://localhost:1313/</link>
+    <link>https://ethanyklei.github.io/</link>
     <description>Recent content on EthanLei</description>
     <image>
       <title>EthanLei</title>
-      <url>http://localhost:1313/images/papermod-cover.png</url>
-      <link>http://localhost:1313/images/papermod-cover.png</link>
+      <url>https://ethanyklei.github.io/images/papermod-cover.png</url>
+      <link>https://ethanyklei.github.io/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.139.3</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 30 Nov 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ethanyklei.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About Me</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://ethanyklei.github.io/about/</link>
       <pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://ethanyklei.github.io/about/</guid>
       <description>&lt;p&gt;Hello！我叫雷易锟（Ethan Lei），你也可以叫我 Kunkun，是个跟着感觉活着的人（但是也同样需要🥖和🍺）。
 目前，我是小红书社区搜索的一名算法工程师，主要在参与生成式搜索相关的业务。
 2017～2021年，我在东北大学攻读学士学位。随后，2021～2024年，我在天津大学&lt;a href=&#34;https://tjunlp-lab.github.io/&#34;&gt;自然语言处理实验室&lt;/a&gt;（TJUNLP）&lt;a href=&#34;https://dyxiong.github.io/&#34;&gt;熊德意&lt;/a&gt;教授的指导下，获得了硕士学位。&lt;/p&gt;
@@ -45,7 +45,7 @@
 &lt;h2 id=&#34;publications-google-scholarhttpsscholargooglecomcitationsusermxpxrbyaaaajhlzh-cn&#34;&gt;Publications &lt;a href=&#34;https://scholar.google.com/citations?user=mxpXRBYAAAAJ&amp;hl=zh-CN&#34;&gt;[google scholar]&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;2024&#34;&gt;2024&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;http://localhost:1313/&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
+&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;https://ethanyklei.github.io/&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
 &lt;li&gt;📄 Meizhi Zhong, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Yan Gao, Yao Hu, Kehai Chen, Min Zhang. &lt;a href=&#34;https://arxiv.org/abs/2406.13282&#34;&gt;Understanding the RoPE Extensions of Long-Context LLMs: An Attention Perspective
 &lt;/a&gt;. COLING(2025).&lt;/li&gt;
 &lt;li&gt;📄 Haoran Sun, Renren Jin, Shaoyang Xu, Leiyu Pan, Supryadi, Menglong Cui, Jiangcun Du, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Lei Yang, Ling Shi, Juesi Xiao, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/abs/2408.06273&#34;&gt;FuxiTranyu: A Multilingual Large Language Model Trained with Balanced Data&lt;/a&gt;. ArXiv(2024).&lt;/li&gt;
@@ -67,9 +67,9 @@
     </item>
     <item>
       <title>Policy-gradient Algorithem</title>
-      <link>http://localhost:1313/blogs/posts/policy_gradient_algorithem/</link>
+      <link>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</link>
       <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/posts/policy_gradient_algorithem/</guid>
+      <guid>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</guid>
       <description>Desc Text.</description>
     </item>
   </channel>
