@@ -11,37 +11,8 @@
     </image>
     <generator>Hugo -- 0.139.3</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ethanyklei.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title></title>
-      <link>https://ethanyklei.github.io/publications/</link>
-      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/publications/</guid>
-      <description>&lt;!-- # Publications  &lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg&#34; style=&#34;display: inline; width: 50px; vertical-align: middle; border: none;&#34;&gt; --&gt;
-&lt;h1 id=&#34;publications&#34;&gt;Publications&lt;/h1&gt;
-&lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;https://ethanyklei.github.io/&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
-&lt;li&gt;📄 Meizhi Zhong, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Yan Gao, Yao Hu, Kehai Chen, Min Zhang. &lt;a href=&#34;https://arxiv.org/abs/2406.13282&#34;&gt;Understanding the RoPE Extensions of Long-Context LLMs: An Attention Perspective
-&lt;/a&gt;. COLING(2025).&lt;/li&gt;
-&lt;li&gt;📄 Haoran Sun, Renren Jin, Shaoyang Xu, Leiyu Pan, Supryadi, Menglong Cui, Jiangcun Du, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Lei Yang, Ling Shi, Juesi Xiao, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/abs/2408.06273&#34;&gt;FuxiTranyu: A Multilingual Large Language Model Trained with Balanced Data&lt;/a&gt;. ArXiv(2024).&lt;/li&gt;
-&lt;li&gt;📄 Hao Wang, Zhengshan Xue, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/10445811/&#34;&gt;End-to-End Speech Translation with Mutual Knowledge Distillation&lt;/a&gt;. ICASSP (2024).&lt;/li&gt;
-&lt;li&gt;📄 Xiaohu Zhao, Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://www.sciencedirect.com/science/article/abs/pii/S0957417424001064&#34;&gt;Regularizing Cross-Attention Learning for End-to-End Speech Translation with ASR and MT Attention Matrices&lt;/a&gt;. Expert Systems with Applications.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;2023&#34;&gt;2023&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;📄 &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Zhengshan Xue, Xiaohu Zhao, Haoran Sun, Shaolin Zhu, Xiaodong Lin, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.findings-acl.195.pdf&#34;&gt;CKDST: Comprehensively and Effectively Distill Knowledge from Machine Translation to End-to-End Speech Translation&lt;/a&gt;. ACL Findings(2023).&lt;/li&gt;
-&lt;li&gt;📄 Shaolin Zhu, Shangjie Li, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.acl-long.751.pdf&#34;&gt;PEIT: Bridging the Modality Gap with Pre-trained Models for End-to-End Image Translation&lt;/a&gt;. ACL(2023).&lt;/li&gt;
-&lt;li&gt;📄 Haoran Sun, Xiaohu Zhao, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/pdf/2310.20456&#34;&gt;Towards a Deep Understanding of Multilingual End-to-End Speech Translation&lt;/a&gt;. EMNLP Findings(2023).&lt;/li&gt;
-&lt;li&gt;📄 Xiaohu Zhao, Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.findings-emnlp.394.pdf&#34;&gt;CCSRD: Content-Centric Speech Representation Disentanglement Learning for End-to-End Speech Translation&lt;/a&gt;. EMNLP Findings(2023).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;2022&#34;&gt;2022&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;📄 &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yuqi Ren, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2022.coling-1.462.pdf&#34;&gt;CoDoNMT: Modeling Cohesion Devices for Document-Level Neural Machine Translation&lt;/a&gt;. COLING(2022).&lt;/li&gt;
-&lt;li&gt;📄 Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/9961282&#34;&gt;Multilingual Neural Machine Transliteration with Adaptive Segmentation Schemes&lt;/a&gt;. IALP(2022).&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
     <item>
       <title>About Me</title>
       <link>https://ethanyklei.github.io/about/</link>
@@ -164,6 +135,33 @@
       <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</guid>
       <description>Desc Text.</description>
+    </item>
+    <item>
+      <title>Publications</title>
+      <link>https://ethanyklei.github.io/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethanyklei.github.io/publications/</guid>
+      <description>&lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;https://ethanyklei.github.io/&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
+&lt;li&gt;📄 Meizhi Zhong, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Yan Gao, Yao Hu, Kehai Chen, Min Zhang. &lt;a href=&#34;https://arxiv.org/abs/2406.13282&#34;&gt;Understanding the RoPE Extensions of Long-Context LLMs: An Attention Perspective
+&lt;/a&gt;. COLING(2025).&lt;/li&gt;
+&lt;li&gt;📄 Haoran Sun, Renren Jin, Shaoyang Xu, Leiyu Pan, Supryadi, Menglong Cui, Jiangcun Du, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Lei Yang, Ling Shi, Juesi Xiao, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/abs/2408.06273&#34;&gt;FuxiTranyu: A Multilingual Large Language Model Trained with Balanced Data&lt;/a&gt;. ArXiv(2024).&lt;/li&gt;
+&lt;li&gt;📄 Hao Wang, Zhengshan Xue, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/10445811/&#34;&gt;End-to-End Speech Translation with Mutual Knowledge Distillation&lt;/a&gt;. ICASSP (2024).&lt;/li&gt;
+&lt;li&gt;📄 Xiaohu Zhao, Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://www.sciencedirect.com/science/article/abs/pii/S0957417424001064&#34;&gt;Regularizing Cross-Attention Learning for End-to-End Speech Translation with ASR and MT Attention Matrices&lt;/a&gt;. Expert Systems with Applications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2023&#34;&gt;2023&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📄 &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Zhengshan Xue, Xiaohu Zhao, Haoran Sun, Shaolin Zhu, Xiaodong Lin, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.findings-acl.195.pdf&#34;&gt;CKDST: Comprehensively and Effectively Distill Knowledge from Machine Translation to End-to-End Speech Translation&lt;/a&gt;. ACL Findings(2023).&lt;/li&gt;
+&lt;li&gt;📄 Shaolin Zhu, Shangjie Li, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.acl-long.751.pdf&#34;&gt;PEIT: Bridging the Modality Gap with Pre-trained Models for End-to-End Image Translation&lt;/a&gt;. ACL(2023).&lt;/li&gt;
+&lt;li&gt;📄 Haoran Sun, Xiaohu Zhao, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/pdf/2310.20456&#34;&gt;Towards a Deep Understanding of Multilingual End-to-End Speech Translation&lt;/a&gt;. EMNLP Findings(2023).&lt;/li&gt;
+&lt;li&gt;📄 Xiaohu Zhao, Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.findings-emnlp.394.pdf&#34;&gt;CCSRD: Content-Centric Speech Representation Disentanglement Learning for End-to-End Speech Translation&lt;/a&gt;. EMNLP Findings(2023).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2022&#34;&gt;2022&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📄 &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yuqi Ren, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2022.coling-1.462.pdf&#34;&gt;CoDoNMT: Modeling Cohesion Devices for Document-Level Neural Machine Translation&lt;/a&gt;. COLING(2022).&lt;/li&gt;
+&lt;li&gt;📄 Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/9961282&#34;&gt;Multilingual Neural Machine Transliteration with Adaptive Segmentation Schemes&lt;/a&gt;. IALP(2022).&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>
