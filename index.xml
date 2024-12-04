@@ -11,12 +11,19 @@
     </image>
     <generator>Hugo -- 0.139.3</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ethanyklei.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Policy-gradient Algorithem</title>
+      <link>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</guid>
+      <description>Desc Text.</description>
+    </item>
     <item>
       <title>About Me</title>
       <link>https://ethanyklei.github.io/about/</link>
-      <pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ethanyklei.github.io/about/</guid>
       <description>&lt;p&gt;Hello！我叫雷易锟（Ethan Lei），你也可以叫我 Kunkun，是个跟着感觉活着的人（但是也同样需要🥖和🍺）。
 目前，我是小红书社区搜索的一名算法工程师，主要在参与生成式搜索相关的业务。
@@ -32,6 +39,11 @@
 &lt;li&gt;📷 &lt;strong&gt;摄影&lt;/strong&gt;：跟着感觉活的人，很难不喜欢摄影。&lt;/li&gt;
 &lt;li&gt;👜 &lt;strong&gt;旅行&lt;/strong&gt;：从小地理就学的不好，并不是因为不喜欢，而是对文字描述的世界不敏感。&lt;/li&gt;
 &lt;li&gt;🕺 &lt;strong&gt;跳舞&lt;/strong&gt;：Hiphop人，Hiphop魂。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;news&#34;&gt;News&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🔥 [2024-6] 我们的生成式AI搜索产品 &lt;strong&gt;&lt;font color=&#34;red&#34; &gt;搜搜薯&lt;/font&gt;&lt;/strong&gt; 已经入驻小红书搜索，快去搜索框抓他吧～&lt;/li&gt;
+&lt;li&gt;🔥 [2024-6] 我们的对话式AI产品 &lt;a href=&#34;https://www.xiaohongshu.com/user/profile/65b896ce000000000d01dc75&#34;&gt;&lt;strong&gt;&lt;font color=&#34;red&#34; &gt;达芬奇&lt;/font&gt;&lt;/strong&gt;&lt;/a&gt; 出道啦！快去找他聊天！&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;经历&#34;&gt;经历&lt;/h2&gt;
 &lt;!-- - 🧑‍💻&amp;emsp;2023.11 ~ Now&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: 算法工程师, 小红书. 主要负责搭建LLM-based Agent系统和生成式AI搜索系统。
@@ -128,13 +140,6 @@
 - 📄&amp;emsp;Haoran Sun, **Yikun Lei**, Deyi Xiong. [Multilingual Neural Machine Transliteration with Adaptive Segmentation Schemes](https://ieeexplore.ieee.org/abstract/document/9961282). IALP(2022).
 
  --&gt;</description>
-    </item>
-    <item>
-      <title>Policy-gradient Algorithem</title>
-      <link>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</guid>
-      <description>Desc Text.</description>
     </item>
     <item>
       <title>Publications</title>
