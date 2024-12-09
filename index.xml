@@ -154,11 +154,9 @@
 &lt;li&gt;👜 &lt;strong&gt;旅行&lt;/strong&gt;：从小地理就学的不好，并不是因为不喜欢，而是对文字描述的世界不敏感。&lt;/li&gt;
 &lt;li&gt;🕺 &lt;strong&gt;跳舞&lt;/strong&gt;：Hiphop人，Hiphop魂。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;news&#34;&gt;News&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;🔥 [2024-6] 我们的生成式AI搜索产品 &lt;strong&gt;&lt;font color=&#34;red&#34; &gt;搜搜薯&lt;/font&gt;&lt;/strong&gt; 已经入驻小红书搜索，快去搜索框抓他吧～&lt;/li&gt;
-&lt;li&gt;🔥 [2024-6] 我们的对话式AI产品 &lt;a href=&#34;https://www.xiaohongshu.com/user/profile/65b896ce000000000d01dc75&#34;&gt;&lt;strong&gt;&lt;font color=&#34;red&#34; &gt;达芬奇&lt;/font&gt;&lt;/strong&gt;&lt;/a&gt; 出道啦！快去找他聊天！&lt;/li&gt;
-&lt;/ul&gt;
+&lt;!-- ## News
+- 🔥 [2024-6] 我们的生成式AI搜索产品 **&lt;font color=&#34;red&#34; &gt;搜搜薯&lt;/font&gt;** 已经入驻小红书搜索，快去搜索框抓他吧～
+- 🔥 [2024-6] 我们的对话式AI产品 [**&lt;font color=&#34;red&#34; &gt;达芬奇&lt;/font&gt;**](https://www.xiaohongshu.com/user/profile/65b896ce000000000d01dc75) 出道啦！快去找他聊天！ --&gt;
 &lt;h2 id=&#34;经历&#34;&gt;经历&lt;/h2&gt;
 &lt;!-- - 🧑‍💻&amp;emsp;2023.11 ~ Now&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: 算法工程师, 小红书. 主要负责搭建LLM-based Agent系统和生成式AI搜索系统。
 - 🧑‍💻&amp;emsp;2023.08~2023.11: 实习生, 序明基金. 主要负责端到端中高频因子挖掘相关工作.
