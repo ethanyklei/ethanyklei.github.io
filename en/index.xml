@@ -2,33 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>EthanLei</title>
-    <link>https://ethanyklei.github.io/</link>
+    <link>http://localhost:1313/en/</link>
     <description>Recent content on EthanLei</description>
     <image>
       <title>EthanLei</title>
-      <url>https://ethanyklei.github.io/images/papermod-cover.png</url>
-      <link>https://ethanyklei.github.io/images/papermod-cover.png</link>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.139.3</generator>
     <language>en</language>
-    <atom:link href="https://ethanyklei.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Policy-gradient Algorithem</title>
+      <link>http://localhost:1313/en/blogs/posts/policy_gradient_algorithem/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blogs/posts/policy_gradient_algorithem/</guid>
+      <description>Desc Text.</description>
+    </item>
     <item>
       <title>About Me</title>
-      <link>https://ethanyklei.github.io/about/</link>
+      <link>http://localhost:1313/en/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/about/</guid>
+      <guid>http://localhost:1313/en/about/</guid>
       <description>&lt;p&gt;Hello! I&amp;rsquo;m Ethan Lei (雷易锟), but feel free to call me Kunkun. I&amp;rsquo;m an idealist at heart who believes in the transformative power of technology.
 Currently, I&amp;rsquo;m working as an Algorithm Engineer at Xiaohongshu Inc., where I focus on developing AI-powered search products and pioneering AI-native applications.
 My academic journey includes a Bachelor&amp;rsquo;s degree from Northeastern University (2017-2021) and a Master&amp;rsquo;s degree from Tianjin University (2021-2023), where I was fortunate to work with &lt;a href=&#34;https://tjunlp-lab.github.io/&#34;&gt;TJUNLP&lt;/a&gt; under the guidance of &lt;a href=&#34;https://dyxiong.github.io/&#34;&gt;Prof. Deiyi Xiong&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Publications</title>
-      <link>https://ethanyklei.github.io/publications/</link>
+      <link>http://localhost:1313/en/publications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/publications/</guid>
+      <guid>http://localhost:1313/en/publications/</guid>
       <description>&lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;https://ethanyklei.github.io/&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
+&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;http://localhost:1313/en/&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
 &lt;li&gt;📄 Meizhi Zhong, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Yan Gao, Yao Hu, Kehai Chen, Min Zhang. &lt;a href=&#34;https://arxiv.org/abs/2406.13282&#34;&gt;Understanding the RoPE Extensions of Long-Context LLMs: An Attention Perspective
 &lt;/a&gt;. COLING(2025).&lt;/li&gt;
 &lt;li&gt;📄 Haoran Sun, Renren Jin, Shaoyang Xu, Leiyu Pan, Supryadi, Menglong Cui, Jiangcun Du, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Lei Yang, Ling Shi, Juesi Xiao, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/abs/2408.06273&#34;&gt;FuxiTranyu: A Multilingual Large Language Model Trained with Balanced Data&lt;/a&gt;. ArXiv(2024).&lt;/li&gt;

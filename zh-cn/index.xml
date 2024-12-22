@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>EthanLei</title>
+    <link>https://ethanyklei.github.io/zh-cn/</link>
+    <description>Recent content on EthanLei</description>
+    <image>
+      <title>EthanLei</title>
+      <url>https://ethanyklei.github.io/images/papermod-cover.png</url>
+      <link>https://ethanyklei.github.io/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 02 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ethanyklei.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Loss计算技巧之Logsumexp</title>
+      <link>https://ethanyklei.github.io/zh-cn/blogs/posts/loss%E8%AE%A1%E7%AE%97%E6%8A%80%E5%B7%A7%E4%B9%8Blogsumexp/</link>
+      <pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://ethanyklei.github.io/zh-cn/blogs/posts/loss%E8%AE%A1%E7%AE%97%E6%8A%80%E5%B7%A7%E4%B9%8Blogsumexp/</guid>
+      <description>Desc Text.</description>
+    </item>
+    <item>
+      <title>Policy-gradient Algorithem</title>
+      <link>https://ethanyklei.github.io/zh-cn/blogs/posts/policy_gradient_algorithem/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://ethanyklei.github.io/zh-cn/blogs/posts/policy_gradient_algorithem/</guid>
+      <description>Desc Text.</description>
+    </item>
+    <item>
+      <title>About Me</title>
+      <link>https://ethanyklei.github.io/zh-cn/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethanyklei.github.io/zh-cn/about/</guid>
+      <description>&lt;p&gt;Hello！我叫雷易锟（Ethan Lei），你也可以叫我 Kunkun，是个跟着感觉活着的人（但是也同样需要🥖和🍺）。
+目前，我是小红书社区搜索的一名算法工程师，主要在参与生成式搜索相关的业务。
+2017～2021年，我在东北大学攻读学士学位。随后，2021～2024年，我在天津大学&lt;a href=&#34;https://tjunlp-lab.github.io/&#34;&gt;自然语言处理实验室&lt;/a&gt;（TJUNLP）&lt;a href=&#34;https://dyxiong.github.io/&#34;&gt;熊德意&lt;/a&gt;教授的指导下，获得了硕士学位。&lt;/p&gt;
+&lt;p&gt;我的研究兴趣主要集中在：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🌟 &lt;strong&gt;机器翻译&lt;/strong&gt;： 包括了篇章级神经机器翻译、语音翻译和图像翻译。&lt;/li&gt;
+&lt;li&gt;🌟 &lt;strong&gt;LLM-based Agent&lt;/strong&gt;：特别是大模型的Reasoning能力和工具使用能力的研究。&lt;/li&gt;
+&lt;li&gt;🌟 &lt;strong&gt;AI原生应用&lt;/strong&gt;：目前主要专注在AI搜索方向。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- 除此之外，我还很喜欢：
+- 📷&amp;emsp;**摄影**：跟着感觉活的人，很难不喜欢摄影。
+- 👜&amp;emsp;**旅行**：从小地理就学的不好，并不是因为不喜欢，而是对文字描述的世界不敏感。
+- 🕺&amp;emsp;**跳舞**：Hiphop人，Hiphop魂。 --&gt;
+&lt;!-- ## News
+- 🔥 [2024-6] 我们的生成式AI搜索产品 **&lt;font color=&#34;red&#34; &gt;搜搜薯&lt;/font&gt;** 已经入驻小红书搜索，快去搜索框抓他吧～
+- 🔥 [2024-6] 我们的对话式AI产品 [**&lt;font color=&#34;red&#34; &gt;达芬奇&lt;/font&gt;**](https://www.xiaohongshu.com/user/profile/65b896ce000000000d01dc75) 出道啦！快去找他聊天！ --&gt;
+&lt;h2 id=&#34;经历&#34;&gt;经历&lt;/h2&gt;
+&lt;!-- - 🧑‍💻&amp;emsp;2023.11 ~ Now&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;: 算法工程师, 小红书. 主要负责搭建LLM-based Agent系统和生成式AI搜索系统。
+- 🧑‍💻&amp;emsp;2023.08~2023.11: 实习生, 序明基金. 主要负责端到端中高频因子挖掘相关工作.
+- 🧑‍💻&amp;emsp;2022.09~2023.08: 实习生, Oppo研究院. 主要负责端到端语音翻译和基于大模型的机器翻译相关研究.
+- 🧑‍🎓&amp;emsp;2021.09~2022.09: 研究生, 天津大学. 主要从事篇章级神经机器翻译相关研究.
+- 🧑‍🎓&amp;emsp;2019.09~2020.01: 交换生, 北海道大学. 情报工程专业. 
+- 🧑‍🎓&amp;emsp;2017.09~2021.09: 本科生, 东北大学. 软件工程专业.  --&gt;
+&lt;div class=&#34;timeline&#34;&gt;
+  
+    &lt;div class=&#34;timeline-item&#34;&gt;
+      &lt;div class=&#34;timeline-left&#34;&gt;
+        &lt;div class=&#34;timeline-date&#34;&gt;2023.11 ~ Now&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;timeline-right&#34;&gt;
+        &lt;div class=&#34;timeline-title&#34;&gt;小红书&lt;/div&gt;
+        &lt;div class=&#34;timeline-position&#34;&gt;🧑‍💻 算法工程师&lt;/div&gt;
+        &lt;div class=&#34;timeline-description&#34;&gt;主要负责搭建LLM-based Agent系统和生成式AI搜索系统。&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+    &lt;div class=&#34;timeline-item&#34;&gt;
+      &lt;div class=&#34;timeline-left&#34;&gt;
+        &lt;div class=&#34;timeline-date&#34;&gt;2023.08 ~ 2023.11&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;timeline-right&#34;&gt;
+        &lt;div class=&#34;timeline-title&#34;&gt;序明基金&lt;/div&gt;
+        &lt;div class=&#34;timeline-position&#34;&gt;🧑‍💻 实习生&lt;/div&gt;
+        &lt;div class=&#34;timeline-description&#34;&gt;主要负责端到端中高频因子挖掘相关工作。&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+    &lt;div class=&#34;timeline-item&#34;&gt;
+      &lt;div class=&#34;timeline-left&#34;&gt;
+        &lt;div class=&#34;timeline-date&#34;&gt;2022.09 ~ 2023.08&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;timeline-right&#34;&gt;
+        &lt;div class=&#34;timeline-title&#34;&gt;Oppo研究院&lt;/div&gt;
+        &lt;div class=&#34;timeline-position&#34;&gt;🧑‍💻 实习生&lt;/div&gt;
+        &lt;div class=&#34;timeline-description&#34;&gt;主要负责端到端语音翻译和基于大模型的机器翻译相关研究。&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+    &lt;div class=&#34;timeline-item&#34;&gt;
+      &lt;div class=&#34;timeline-left&#34;&gt;
+        &lt;div class=&#34;timeline-date&#34;&gt;2021.09 ~ 2024.03&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;timeline-right&#34;&gt;
+        &lt;div class=&#34;timeline-title&#34;&gt;天津大学&lt;/div&gt;
+        &lt;div class=&#34;timeline-position&#34;&gt;🧑‍🎓 研究生&lt;/div&gt;
+        &lt;div class=&#34;timeline-description&#34;&gt;主要从事篇章级神经机器翻译相关研究。&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+    &lt;div class=&#34;timeline-item&#34;&gt;
+      &lt;div class=&#34;timeline-left&#34;&gt;
+        &lt;div class=&#34;timeline-date&#34;&gt;2019.09 ~ 2020.01&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;timeline-right&#34;&gt;
+        &lt;div class=&#34;timeline-title&#34;&gt;北海道大学&lt;/div&gt;
+        &lt;div class=&#34;timeline-position&#34;&gt;🧑‍🎓 交换生&lt;/div&gt;
+        &lt;div class=&#34;timeline-description&#34;&gt;情报工程专业&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+    &lt;div class=&#34;timeline-item&#34;&gt;
+      &lt;div class=&#34;timeline-left&#34;&gt;
+        &lt;div class=&#34;timeline-date&#34;&gt;2017.09 ~ 2021.09&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;timeline-right&#34;&gt;
+        &lt;div class=&#34;timeline-title&#34;&gt;东北大学&lt;/div&gt;
+        &lt;div class=&#34;timeline-position&#34;&gt;🧑‍🎓 本科生&lt;/div&gt;
+        &lt;div class=&#34;timeline-description&#34;&gt;软件工程专业&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;!-- ## Publications [[google scholar]](https://scholar.google.com/citations?user=mxpXRBYAAAAJ&amp;hl=zh-CN)
+### 2024
+- 📄&amp;emsp;Meizhi Zhong, Xikai Liu, Chen Zhang, **Yikun Lei**, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. [ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty](). COLING(2025)
+- 📄&amp;emsp;Meizhi Zhong, Chen Zhang, **Yikun Lei**, Xikai Liu, Yan Gao, Yao Hu, Kehai Chen, Min Zhang. [Understanding the RoPE Extensions of Long-Context LLMs: An Attention Perspective
+](https://arxiv.org/abs/2406.13282). COLING(2025).
+- 📄&amp;emsp;Haoran Sun, Renren Jin, Shaoyang Xu, Leiyu Pan, Supryadi, Menglong Cui, Jiangcun Du, **Yikun Lei**, Lei Yang, Ling Shi, Juesi Xiao, Shaolin Zhu, Deyi Xiong. [FuxiTranyu: A Multilingual Large Language Model Trained with Balanced Data](https://arxiv.org/abs/2408.06273). ArXiv(2024).
+- 📄&amp;emsp;Hao Wang, Zhengshan Xue, **Yikun Lei**, Deyi Xiong. [End-to-End Speech Translation with Mutual Knowledge Distillation](https://ieeexplore.ieee.org/abstract/document/10445811/). ICASSP (2024).
+- 📄&amp;emsp;Xiaohu Zhao, Haoran Sun, **Yikun Lei**, Deyi Xiong. [Regularizing Cross-Attention Learning for End-to-End Speech Translation with ASR and MT Attention Matrices](https://www.sciencedirect.com/science/article/abs/pii/S0957417424001064). Expert Systems with Applications.
+### 2023
+- 📄&amp;emsp;**Yikun Lei**, Zhengshan Xue, Xiaohu Zhao, Haoran Sun, Shaolin Zhu, Xiaodong Lin, Deyi Xiong. [CKDST: Comprehensively and Effectively Distill Knowledge from Machine Translation to End-to-End Speech Translation](https://aclanthology.org/2023.findings-acl.195.pdf). ACL Findings(2023).
+- 📄&amp;emsp;Shaolin Zhu, Shangjie Li, **Yikun Lei**, Deyi Xiong. [PEIT: Bridging the Modality Gap with Pre-trained Models for End-to-End Image Translation](https://aclanthology.org/2023.acl-long.751.pdf). ACL(2023).
+- 📄&amp;emsp;Haoran Sun, Xiaohu Zhao, **Yikun Lei**, Shaolin Zhu, Deyi Xiong. [Towards a Deep Understanding of Multilingual End-to-End Speech Translation](https://arxiv.org/pdf/2310.20456). EMNLP Findings(2023).
+- 📄&amp;emsp;Xiaohu Zhao, Haoran Sun, **Yikun Lei**, Shaolin Zhu, Deyi Xiong. [CCSRD: Content-Centric Speech Representation Disentanglement Learning for End-to-End Speech Translation](https://aclanthology.org/2023.findings-emnlp.394.pdf). EMNLP Findings(2023).
+### 2022
+- 📄&amp;emsp;**Yikun Lei**, Yuqi Ren, Deyi Xiong. [CoDoNMT: Modeling Cohesion Devices for Document-Level Neural Machine Translation](https://aclanthology.org/2022.coling-1.462.pdf). COLING(2022).
+- 📄&amp;emsp;Haoran Sun, **Yikun Lei**, Deyi Xiong. [Multilingual Neural Machine Transliteration with Adaptive Segmentation Schemes](https://ieeexplore.ieee.org/abstract/document/9961282). IALP(2022).
+
+ --&gt;</description>
+    </item>
+    <item>
+      <title>Publications</title>
+      <link>https://ethanyklei.github.io/zh-cn/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethanyklei.github.io/zh-cn/publications/</guid>
+      <description>&lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;https://ethanyklei.github.io/zh-cn/&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
+&lt;li&gt;📄 Meizhi Zhong, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Yan Gao, Yao Hu, Kehai Chen, Min Zhang. &lt;a href=&#34;https://arxiv.org/abs/2406.13282&#34;&gt;Understanding the RoPE Extensions of Long-Context LLMs: An Attention Perspective
+&lt;/a&gt;. COLING(2025).&lt;/li&gt;
+&lt;li&gt;📄 Haoran Sun, Renren Jin, Shaoyang Xu, Leiyu Pan, Supryadi, Menglong Cui, Jiangcun Du, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Lei Yang, Ling Shi, Juesi Xiao, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/abs/2408.06273&#34;&gt;FuxiTranyu: A Multilingual Large Language Model Trained with Balanced Data&lt;/a&gt;. ArXiv(2024).&lt;/li&gt;
+&lt;li&gt;📄 Hao Wang, Zhengshan Xue, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/10445811/&#34;&gt;End-to-End Speech Translation with Mutual Knowledge Distillation&lt;/a&gt;. ICASSP (2024).&lt;/li&gt;
+&lt;li&gt;📄 Xiaohu Zhao, Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://www.sciencedirect.com/science/article/abs/pii/S0957417424001064&#34;&gt;Regularizing Cross-Attention Learning for End-to-End Speech Translation with ASR and MT Attention Matrices&lt;/a&gt;. Expert Systems with Applications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2023&#34;&gt;2023&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📄 &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Zhengshan Xue, Xiaohu Zhao, Haoran Sun, Shaolin Zhu, Xiaodong Lin, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.findings-acl.195.pdf&#34;&gt;CKDST: Comprehensively and Effectively Distill Knowledge from Machine Translation to End-to-End Speech Translation&lt;/a&gt;. ACL Findings(2023).&lt;/li&gt;
+&lt;li&gt;📄 Shaolin Zhu, Shangjie Li, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.acl-long.751.pdf&#34;&gt;PEIT: Bridging the Modality Gap with Pre-trained Models for End-to-End Image Translation&lt;/a&gt;. ACL(2023).&lt;/li&gt;
+&lt;li&gt;📄 Haoran Sun, Xiaohu Zhao, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/pdf/2310.20456&#34;&gt;Towards a Deep Understanding of Multilingual End-to-End Speech Translation&lt;/a&gt;. EMNLP Findings(2023).&lt;/li&gt;
+&lt;li&gt;📄 Xiaohu Zhao, Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.findings-emnlp.394.pdf&#34;&gt;CCSRD: Content-Centric Speech Representation Disentanglement Learning for End-to-End Speech Translation&lt;/a&gt;. EMNLP Findings(2023).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2022&#34;&gt;2022&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📄 &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yuqi Ren, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2022.coling-1.462.pdf&#34;&gt;CoDoNMT: Modeling Cohesion Devices for Document-Level Neural Machine Translation&lt;/a&gt;. COLING(2022).&lt;/li&gt;
+&lt;li&gt;📄 Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/9961282&#34;&gt;Multilingual Neural Machine Transliteration with Adaptive Segmentation Schemes&lt;/a&gt;. IALP(2022).&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>
