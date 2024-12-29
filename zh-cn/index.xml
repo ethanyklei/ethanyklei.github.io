@@ -33,13 +33,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ethanyklei.github.io/zh-cn/about/</guid>
       <description>&lt;div class=&#34;quote-decorated&#34;&gt;
-    &lt;p&gt;躺也好，卷也好，不被大风吹倒就好。&lt;/p&gt;
-    &lt;span class=&#34;author&#34;&gt;— 莫言&lt;/span&gt;
+    &lt;p&gt;一个人应该能够换尿布，策划战争，杀猪，开船，设计房子，写十四行诗，结算账户，砌墙，接脱臼的骨头，安慰濒死的人，服从命令，发布命令，携手合作，独立行动，解数学方程，分析新问题，铲粪，电脑编程，做出可口的饭，善打架，勇敢地死去。只有昆虫才专业化。&lt;/p&gt;
+    &lt;span class=&#34;author&#34;&gt;— 罗伯特海因莱因，《时间足够爱你》&lt;/span&gt;
 &lt;/div&gt;
 &lt;style&gt;
 .quote-decorated {
     position: relative;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 20px auto;
     padding: 40px 30px;
     background: #fff;

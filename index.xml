@@ -18,13 +18,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ethanyklei.github.io/about/</guid>
       <description>&lt;div class=&#34;quote-decorated&#34;&gt;
-    &lt;p&gt;Life is like a box of chocolates. You never know what you&#39;re gonna get.&lt;/p&gt;
-    &lt;span class=&#34;author&#34;&gt;— &#34;Forrest Gump&#34;&lt;/span&gt;
+    &lt;p&gt;A human being should be able to change a diaper, plan an invasion, butcher a hog, conn a ship, design a building, write a sonnet, balance accounts, build a wall, set a bone, comfort the dying, take orders, give orders, cooperate, act alone, solve equations, analyze a new problem, pitch manure, program a computer, cook a tasty meal, fight efficiently, die gallantly. Specialization is for insects.&lt;/p&gt;
+    &lt;span class=&#34;author&#34;&gt;— Robert Heinlein, Time Enough for Love&lt;/span&gt;
 &lt;/div&gt;
 &lt;style&gt;
 .quote-decorated {
     position: relative;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 20px auto;
     padding: 40px 30px;
     background: #fff;
