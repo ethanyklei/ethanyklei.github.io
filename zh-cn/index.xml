@@ -11,21 +11,8 @@
     </image>
     <generator>Hugo -- 0.139.3</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 02 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ethanyklei.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Loss计算技巧之Logsumexp</title>
-      <link>https://ethanyklei.github.io/zh-cn/blogs/posts/loss%E8%AE%A1%E7%AE%97%E6%8A%80%E5%B7%A7%E4%B9%8Blogsumexp/</link>
-      <pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/zh-cn/blogs/posts/loss%E8%AE%A1%E7%AE%97%E6%8A%80%E5%B7%A7%E4%B9%8Blogsumexp/</guid>
-      <description>&lt;p&gt;在现在的深度学习中，我们经常会使用“Softmax+CrossEntropy”来计算模型的损失。
-假定我们的预测标签有$N$个（也就是词表的大小），其中$t$为目标标签，则模型的损失函数可以表示为：
-$$
-\mathcal{L} = -\log{\frac{e^{x_t}}{\sum_{i=1}^{N}e^{x_i}}}
-$$&lt;/p&gt;
-&lt;p&gt;其中，$\sum_{i=1}^{N}e^{x_i}$被称为配分函数，用来做归一化使用。&lt;/p&gt;
-&lt;!-- 这个公式乍一看，似乎只有分母为零这一个数值不稳定的风险， --&gt;</description>
-    </item>
     <item>
       <title>Policy-gradient Algorithem</title>
       <link>https://ethanyklei.github.io/zh-cn/blogs/posts/policy_gradient_algorithem/</link>
