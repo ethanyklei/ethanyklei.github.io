@@ -25,7 +25,57 @@
       <link>https://ethanyklei.github.io/zh-cn/blogs/posts/policy_gradient_algorithem/</link>
       <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://ethanyklei.github.io/zh-cn/blogs/posts/policy_gradient_algorithem/</guid>
-      <description>Desc Text.</description>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;Policy-gradient 算法是无模型强化学习算法中的一种，也是Actor-Critic 算法中的Actor。
+REINFORCE算法是一个比较基础的&lt;/p&gt;
+&lt;h2 id=&#34;算法&#34;&gt;算法&lt;/h2&gt;
+&lt;h3 id=&#34;学习目标&#34;&gt;学习目标&lt;/h3&gt;
+&lt;p&gt;Policy-gradient 的目标函数定义如下：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{equation}
+J(\theta)=\mathbb{E}[\sum_{t=0}^{T-1}r_{t+1}]
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;它表示希望学习一个policy能够最大化累计未来回报（cumulative future reward）。
+$r_{t+1}$表示在状态 $s_t$时采取动作 $a_t$从环境中获得的回报。 $r_{t+1} = R(s_t,a_t)$， $R(\cdot)$表示回报函数（reward function）
+因为这是个最大化问题，所以可以使用梯度上升来优化policy。
+$$
+\begin{equation}
+\theta = \theta + \frac{\delta}{\delta \theta}J(\theta)
+\end{equation}
+$$
+Policy 一般会使用神经网络进行参数化。&lt;/p&gt;
+&lt;h3 id=&#34;期望expection&#34;&gt;期望（Expection）&lt;/h3&gt;
+&lt;p&gt;在文献中经常出现的是期望符号——之所以使用它，是因为我们想要优化长期未来（预测的）奖励，而这有一定的不确定性。
+期望值，也称为期望值或平均值，是通过每个x值及其概率的乘积之和来计算的。
+$$
+\begin{equation}
+\mathbb{E}[f(x)] = \sum_{x}P(x)f(x)
+\end{equation}
+$$
+$P(x)$代表随机变量 $x$出现的概率， $f(x)$代表 $x$的值。&lt;/p&gt;
+&lt;h3 id=&#34;推导策略梯度&#34;&gt;推导策略梯度&lt;/h3&gt;
+&lt;p&gt;我们根据先前定义的目标函数，我们可以将期望项进行展开：
+$$
+\begin{equation}
+\begin{split}
+J(\theta) &amp;amp;= \mathbb{E}[\sum_{t=0}^{T-1}r_{t+1}|\pi_{\theta}] \\
+&amp;amp;= \sum_{t=i}^{T-1} P(s_t,a_t|\tau)r_{t+1}
+\end{split}
+\end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;其中 $i$是轨迹 $\tau$中的任意一个起始点， $P(s_t,a_t|\tau)$是在给定轨迹 $\tau$时，出现 $s_t,a_t$的概率。
+对两边同时对policy的参数 $\theta$求导：
+$$
+\begin{equation}
+\begin{split}
+\nabla_{\theta}J(\theta) &amp;amp;= \sum_{t=i}^{T-1}\nabla_{\theta}P(s_t,a_t|\tau)r_{t+1} \\
+&amp;amp;=\sum_{t=i}^{T-1}P(s_t,a_t|\tau)\frac{\nabla_{\theta}P(s_t,a_t|\tau)}{P(s_t,a_t|\tau)} r_{t+1} \\
+&amp;amp;=\sum_{t=i}^{T-1}P(s_t,a_t|\tau)\nabla_{\theta}\log{P(s_t,a_t|\tau)}r_{t+1} \\
+&amp;amp; = \mathbb{E}[\sum_{t=i}^{T-1}\nabla_{\theta}\log{P(s_t,a_t|\tau)r_{t+1}}]
+\end{split}
+\end{equation}
+$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>About Me</title>

@@ -14,16 +14,16 @@
                 href="https://ethanyklei.github.io/about/"
                 />
   </url><url>
-    <loc>https://ethanyklei.github.io/blogs/</loc>
+    <loc>https://ethanyklei.github.io/en/blogs/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ethanyklei.github.io/blogs/"
+                href="https://ethanyklei.github.io/zh-cn/blogs/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ethanyklei.github.io/blogs/"
+                href="https://ethanyklei.github.io/en/blogs/"
                 />
   </url><url>
     <loc>https://ethanyklei.github.io/categories/</loc>
