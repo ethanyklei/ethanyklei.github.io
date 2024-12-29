@@ -2,14 +2,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <sitemap>
-    <loc>https://ethanyklei.github.io/en/sitemap.xml</loc>
+    <loc>https://ethanyklei.github.io/zh-cn/sitemap.xml</loc>
+    
+      <lastmod>2024-11-02T00:00:00+00:00</lastmod>
     
   </sitemap>
   
   <sitemap>
-    <loc>https://ethanyklei.github.io/zh-cn/sitemap.xml</loc>
-    
-      <lastmod>2024-11-02T00:00:00+00:00</lastmod>
+    <loc>https://ethanyklei.github.io/en/sitemap.xml</loc>
     
   </sitemap>
   

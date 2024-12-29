@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>EthanLei</title>
-    <link>https://ethanyklei.github.io/zh-cn/</link>
+    <link>https://ethanyklei.github.io/en/</link>
     <description>Recent content on EthanLei</description>
     <image>
       <title>EthanLei</title>
@@ -10,74 +10,16 @@
       <link>https://ethanyklei.github.io/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.139.3</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Mon, 21 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://ethanyklei.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Policy-gradient Algorithem</title>
-      <link>https://ethanyklei.github.io/zh-cn/blogs/posts/policy_gradient_algorithem/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/zh-cn/blogs/posts/policy_gradient_algorithem/</guid>
-      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
-&lt;p&gt;Policy-gradient 算法是无模型强化学习算法中的一种，也是Actor-Critic 算法中的Actor。
-REINFORCE算法是一个比较基础的&lt;/p&gt;
-&lt;h2 id=&#34;算法&#34;&gt;算法&lt;/h2&gt;
-&lt;h3 id=&#34;学习目标&#34;&gt;学习目标&lt;/h3&gt;
-&lt;p&gt;Policy-gradient 的目标函数定义如下：&lt;/p&gt;
-&lt;p&gt;$$
-\begin{equation}
-J(\theta)=\mathbb{E}[\sum_{t=0}^{T-1}r_{t+1}]
-\end{equation}
-$$&lt;/p&gt;
-&lt;p&gt;它表示希望学习一个policy能够最大化累计未来回报（cumulative future reward）。
-$r_{t+1}$表示在状态 $s_t$时采取动作 $a_t$从环境中获得的回报。 $r_{t+1} = R(s_t,a_t)$， $R(\cdot)$表示回报函数（reward function）
-因为这是个最大化问题，所以可以使用梯度上升来优化policy。
-$$
-\begin{equation}
-\theta = \theta + \frac{\delta}{\delta \theta}J(\theta)
-\end{equation}
-$$
-Policy 一般会使用神经网络进行参数化。&lt;/p&gt;
-&lt;h3 id=&#34;期望expection&#34;&gt;期望（Expection）&lt;/h3&gt;
-&lt;p&gt;在文献中经常出现的是期望符号——之所以使用它，是因为我们想要优化长期未来（预测的）奖励，而这有一定的不确定性。
-期望值，也称为期望值或平均值，是通过每个x值及其概率的乘积之和来计算的。
-$$
-\begin{equation}
-\mathbb{E}[f(x)] = \sum_{x}P(x)f(x)
-\end{equation}
-$$
-$P(x)$代表随机变量 $x$出现的概率， $f(x)$代表 $x$的值。&lt;/p&gt;
-&lt;h3 id=&#34;推导策略梯度&#34;&gt;推导策略梯度&lt;/h3&gt;
-&lt;p&gt;我们根据先前定义的目标函数，我们可以将期望项进行展开：
-$$
-\begin{equation}
-\begin{split}
-J(\theta) &amp;amp;= \mathbb{E}[\sum_{t=0}^{T-1}r_{t+1}|\pi_{\theta}] \\
-&amp;amp;= \sum_{t=i}^{T-1} P(s_t,a_t|\tau)r_{t+1}
-\end{split}
-\end{equation}
-$$&lt;/p&gt;
-&lt;p&gt;其中 $i$是轨迹 $\tau$中的任意一个起始点， $P(s_t,a_t|\tau)$是在给定轨迹 $\tau$时，出现 $s_t,a_t$的概率。
-对两边同时对policy的参数 $\theta$求导：
-$$
-\begin{equation}
-\begin{split}
-\nabla_{\theta}J(\theta) &amp;amp;= \sum_{t=i}^{T-1}\nabla_{\theta}P(s_t,a_t|\tau)r_{t+1} \\
-&amp;amp;=\sum_{t=i}^{T-1}P(s_t,a_t|\tau)\frac{\nabla_{\theta}P(s_t,a_t|\tau)}{P(s_t,a_t|\tau)} r_{t+1} \\
-&amp;amp;=\sum_{t=i}^{T-1}P(s_t,a_t|\tau)\nabla_{\theta}\log{P(s_t,a_t|\tau)}r_{t+1} \\
-&amp;amp; = \mathbb{E}[\sum_{t=i}^{T-1}\nabla_{\theta}\log{P(s_t,a_t|\tau)r_{t+1}}]
-\end{split}
-\end{equation}
-$$&lt;/p&gt;</description>
-    </item>
+    <language>en</language>
+    <atom:link href="https://ethanyklei.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About Me</title>
-      <link>https://ethanyklei.github.io/zh-cn/about/</link>
+      <link>https://ethanyklei.github.io/en/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/zh-cn/about/</guid>
+      <guid>https://ethanyklei.github.io/en/about/</guid>
       <description>&lt;div class=&#34;quote-decorated&#34;&gt;
-    &lt;p&gt;一个人应该能够换尿布，策划战争，杀猪，开船，设计房子，写十四行诗，结算账户，砌墙，接脱臼的骨头，安慰濒死的人，服从命令，发布命令，携手合作，独立行动，解数学方程，分析新问题，铲粪，电脑编程，做出可口的饭，善打架，勇敢地死去。只有昆虫才专业化。&lt;/p&gt;
-    &lt;span class=&#34;author&#34;&gt;— 罗伯特海因莱因，《时间足够爱你》&lt;/span&gt;
+    &lt;p&gt;A human being should be able to change a diaper, plan an invasion, butcher a hog, conn a ship, design a building, write a sonnet, balance accounts, build a wall, set a bone, comfort the dying, take orders, give orders, cooperate, act alone, solve equations, analyze a new problem, pitch manure, program a computer, cook a tasty meal, fight efficiently, die gallantly. Specialization is for insects.&lt;/p&gt;
+    &lt;span class=&#34;author&#34;&gt;— Robert Heinlein, Time Enough for Love&lt;/span&gt;
 &lt;/div&gt;
 &lt;style&gt;
 .quote-decorated {
@@ -114,28 +56,29 @@ $$&lt;/p&gt;</description>
     line-height: 1.6;
     color: #333;
     margin: 0 0 15px 0;
-    font-family: STKaiti;
+    font-family: &#34;Nothing You Could Do&#34;;
+    font-style: italic;
 }
 
 .quote-decorated .author {
     display: block;
     text-align: right;
     color: #666;
-    font-family: STKaiti;
+    font-style: italic;
 }
 &lt;/style&gt;
-&lt;p&gt;Hello！我叫雷易锟（Ethan Lei），你也可以叫我 Kunkun，是个跟着感觉活着的人（但是也同样需要🥖和🍺）。
-目前，我是小红书社区搜索的一名算法工程师，主要在参与生成式搜索相关的业务。
-2017～2021年，我在东北大学攻读学士学位。随后，2021～2024年，我在天津大学&lt;a href=&#34;https://tjunlp-lab.github.io/&#34;&gt;自然语言处理实验室&lt;/a&gt;（TJUNLP）&lt;a href=&#34;https://dyxiong.github.io/&#34;&gt;熊德意&lt;/a&gt;教授的指导下，获得了硕士学位。&lt;/p&gt;</description>
+&lt;p&gt;Hello! I&amp;rsquo;m Ethan Lei (雷易锟), but feel free to call me Kunkun. I&amp;rsquo;m an idealist at heart who believes in the transformative power of technology.
+Currently, I&amp;rsquo;m working as an Algorithm Engineer at Xiaohongshu Inc., where I focus on developing AI-powered search products and pioneering AI-native applications.
+My academic journey includes a Bachelor&amp;rsquo;s degree from Northeastern University (2017-2021) and a Master&amp;rsquo;s degree from Tianjin University (2021-2023), where I was fortunate to work with &lt;a href=&#34;https://tjunlp-lab.github.io/&#34;&gt;TJUNLP&lt;/a&gt; under the guidance of &lt;a href=&#34;https://dyxiong.github.io/&#34;&gt;Prof. Deiyi Xiong&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Publications</title>
-      <link>https://ethanyklei.github.io/zh-cn/publications/</link>
+      <link>https://ethanyklei.github.io/en/publications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/zh-cn/publications/</guid>
+      <guid>https://ethanyklei.github.io/en/publications/</guid>
       <description>&lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;https://ethanyklei.github.io/zh-cn/&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
+&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;https://ethanyklei.github.io/en/&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
 &lt;li&gt;📄 Meizhi Zhong, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Yan Gao, Yao Hu, Kehai Chen, Min Zhang. &lt;a href=&#34;https://arxiv.org/abs/2406.13282&#34;&gt;Understanding the RoPE Extensions of Long-Context LLMs: An Attention Perspective
 &lt;/a&gt;. COLING(2025).&lt;/li&gt;
 &lt;li&gt;📄 Haoran Sun, Renren Jin, Shaoyang Xu, Leiyu Pan, Supryadi, Menglong Cui, Jiangcun Du, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Lei Yang, Ling Shi, Juesi Xiao, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/abs/2408.06273&#34;&gt;FuxiTranyu: A Multilingual Large Language Model Trained with Balanced Data&lt;/a&gt;. ArXiv(2024).&lt;/li&gt;

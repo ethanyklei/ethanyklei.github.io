@@ -15,44 +15,44 @@
                 href="https://ethanyklei.github.io/zh-cn/blogs/"
                 />
   </url><url>
-    <loc>https://ethanyklei.github.io/zh-cn/</loc>
+    <loc>https://ethanyklei.github.io/</loc>
     <lastmod>2024-11-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
+                href="https://ethanyklei.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
                 href="https://ethanyklei.github.io/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://ethanyklei.github.io/zh-cn/"
-                />
   </url><url>
-    <loc>https://ethanyklei.github.io/zh-cn/blogs/posts/policy_gradient_algorithem/</loc>
+    <loc>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</loc>
     <lastmod>2024-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ethanyklei.github.io/zh-cn/about/</loc>
+    <loc>https://ethanyklei.github.io/about/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
+                href="https://ethanyklei.github.io/en/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
                 href="https://ethanyklei.github.io/about/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://ethanyklei.github.io/zh-cn/about/"
-                />
   </url><url>
-    <loc>https://ethanyklei.github.io/zh-cn/publications/</loc>
+    <loc>https://ethanyklei.github.io/publications/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ethanyklei.github.io/publications/"
+                href="https://ethanyklei.github.io/en/publications/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ethanyklei.github.io/zh-cn/publications/"
+                href="https://ethanyklei.github.io/publications/"
                 />
   </url>
 </urlset>

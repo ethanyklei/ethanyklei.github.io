@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ethanyklei.github.io/about/</loc>
+    <loc>https://ethanyklei.github.io/en/about/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ethanyklei.github.io/zh-cn/about/"
+                href="https://ethanyklei.github.io/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ethanyklei.github.io/about/"
+                href="https://ethanyklei.github.io/en/about/"
                 />
   </url><url>
     <loc>https://ethanyklei.github.io/en/blogs/</loc>
@@ -26,32 +26,32 @@
                 href="https://ethanyklei.github.io/en/blogs/"
                 />
   </url><url>
-    <loc>https://ethanyklei.github.io/categories/</loc>
+    <loc>https://ethanyklei.github.io/en/categories/</loc>
   </url><url>
-    <loc>https://ethanyklei.github.io/</loc>
+    <loc>https://ethanyklei.github.io/en/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ethanyklei.github.io/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
                 href="https://ethanyklei.github.io/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ethanyklei.github.io/en/"
+                />
   </url><url>
-    <loc>https://ethanyklei.github.io/publication/</loc>
+    <loc>https://ethanyklei.github.io/en/publication/</loc>
   </url><url>
-    <loc>https://ethanyklei.github.io/publications/</loc>
+    <loc>https://ethanyklei.github.io/en/publications/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ethanyklei.github.io/zh-cn/publications/"
+                href="https://ethanyklei.github.io/publications/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ethanyklei.github.io/publications/"
+                href="https://ethanyklei.github.io/en/publications/"
                 />
   </url>
 </urlset>
