@@ -15,9 +15,9 @@
     <atom:link href="https://ethanyklei.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>在熵增的世界，我放弃了寻找确定性</title>
-      <link>https://ethanyklei.github.io/blogs/posts/personal_summary_2025q2/</link>
+      <link>https://ethanyklei.github.io/blogs/posts/2025_mid-year_review/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/blogs/posts/personal_summary_2025q2/</guid>
+      <guid>https://ethanyklei.github.io/blogs/posts/2025_mid-year_review/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;熵增是永恒的宿命，与其在不确定的洪流中执意追寻确定，不如向内深耕自我，随势流转，随心而行。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -60,9 +60,9 @@
     </item>
     <item>
       <title>2024, Not bad.</title>
-      <link>https://ethanyklei.github.io/blogs/posts/personal_summary_of_2024/</link>
+      <link>https://ethanyklei.github.io/blogs/posts/2024_year_end_review/</link>
       <pubDate>Mon, 30 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/blogs/posts/personal_summary_of_2024/</guid>
+      <guid>https://ethanyklei.github.io/blogs/posts/2024_year_end_review/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Warning：这是一个矫情的、敏感的双鱼男的自述，带有强烈的个人主观情感偏见。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -236,9 +236,9 @@ $$&lt;/p&gt;</description>
     font-family: STKaiti;
 }
 &lt;/style&gt;
-&lt;p&gt;Hello！我叫雷易锟（Ethan Lei），你也可以叫我 Kunkun，是个跟着感觉活着的人（但是也同样需要🥖和🍺）。
-目前，我是小红书社区搜索的一名算法工程师，主要在参与生成式搜索相关的业务。
-2017～2021年，我在东北大学攻读学士学位。随后，2021～2024年，我在天津大学&lt;a href=&#34;https://tjunlp-lab.github.io/&#34;&gt;自然语言处理实验室&lt;/a&gt;（TJUNLP）&lt;a href=&#34;https://dyxiong.github.io/&#34;&gt;熊德意&lt;/a&gt;教授的指导下，获得了硕士学位。&lt;/p&gt;</description>
+&lt;p&gt;Hello！我叫雷易锟（Ethan Lei），你也可以叫我 Kunkun，是一个相信直觉与热情的技术探索者（但是也同样需要🥖和🍺）。
+2017～2021年，我在东北大学攻读学士学位。随后，2021～2024年，我在天津大学&lt;a href=&#34;https://tjunlp-lab.github.io/&#34;&gt;自然语言处理实验室&lt;/a&gt;（TJUNLP）&lt;a href=&#34;https://dyxiong.github.io/&#34;&gt;熊德意&lt;/a&gt;教授的指导下，获得了硕士学位。
+目前，我在探索人生可能性的途中，并追寻着下一个时代范式。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Publications</title>

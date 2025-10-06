@@ -24,14 +24,14 @@
 为了验证这个假设，我开始主动结识不同行业的朋友，去各地体验真实的生活，并在实践中反复审视自己过去的认知。我发现，这些看似分散精力的探索，非但没有影响本职工作，反而让我在宏观与微观两个维度上，对社会运转有了更深刻的理解，也建立起一个更全面、立体的价值体系。
 这让我更加笃定，我的假设是正确的。
 最后，我想借用《冈仁波齐》电影结尾的话来收尾：
-这个世界上没有什么生活方式是完全正确的，神山圣湖不是终点，接受平凡的自我，但不放弃理想和信仰，热爱生活，我们都在路上，也许路的尽头是什么从来都不重要。</p></div><footer class=entry-footer><span title='2025-10-06 00:00:00 +0000 UTC'>October 6, 2025</span>&nbsp;·&nbsp;Ethan</footer><a class=entry-link aria-label="post link to 在熵增的世界，我放弃了寻找确定性" href=https://ethanyklei.github.io/blogs/posts/personal_summary_2025q2/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>2024, Not bad.</h2></header><div class=entry-content><p>Warning：这是一个矫情的、敏感的双鱼男的自述，带有强烈的个人主观情感偏见。
+这个世界上没有什么生活方式是完全正确的，神山圣湖不是终点，接受平凡的自我，但不放弃理想和信仰，热爱生活，我们都在路上，也许路的尽头是什么从来都不重要。</p></div><footer class=entry-footer><span title='2025-10-06 00:00:00 +0000 UTC'>October 6, 2025</span>&nbsp;·&nbsp;Ethan</footer><a class=entry-link aria-label="post link to 在熵增的世界，我放弃了寻找确定性" href=https://ethanyklei.github.io/blogs/posts/2025_mid-year_review/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>2024, Not bad.</h2></header><div class=entry-content><p>Warning：这是一个矫情的、敏感的双鱼男的自述，带有强烈的个人主观情感偏见。
 TL;DR 小时候，我常说：“我想做这个，我想做那个。”，长大了，我却常说：“我不能做这个，我不能做那个。”
 细想这些所谓的"不能"，其实并非真的不能，而是被现实的种种条件所束缚，失去了选择的自由。
 但是，当生存不再是困扰，那我便有了选择的自由。 我选择不再将多余的精力用来追求更富足的物质生活，而是去探索人生的旷野，去寻找那条属于我的路，通向那扇独属于我的窄门。
 这条路或许荆棘遍布，或许人迹罕至，但我深信，穿越艰难后的风景，必将美不胜收。
 一个人应该能够换尿布，策划战争，杀猪，开船，设计房子，写十四行诗，结算账户，砌墙，接脱臼的骨头，安慰濒死的人，服从命令，发布命令，携手合作，独立行动，解数学方程，分析新问题，铲粪，电脑编程，做出可口的饭，善打架，勇敢地死去。只有昆虫才专业化。
 — 罗伯特海因莱因，《时间足够爱你》 序言 转眼间又到年末，像往常一样，不自觉地开始回顾这一年。划着手机相册，从一月滑到十二月，一直翻到昨天，点点滴滴的记忆涌上心头。
-...</p></div><footer class=entry-footer><span title='2024-12-30 00:00:00 +0000 UTC'>December 30, 2024</span>&nbsp;·&nbsp;Ethan</footer><a class=entry-link aria-label="post link to 2024, Not bad." href=https://ethanyklei.github.io/blogs/posts/personal_summary_of_2024/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Policy-gradient Algorithem</h2></header><div class=entry-content><p>Intro Policy-gradient 算法是无模型强化学习算法中的一种，也是Actor-Critic 算法中的Actor。 REINFORCE算法是一个比较基础的
+...</p></div><footer class=entry-footer><span title='2024-12-30 00:00:00 +0000 UTC'>December 30, 2024</span>&nbsp;·&nbsp;Ethan</footer><a class=entry-link aria-label="post link to 2024, Not bad." href=https://ethanyklei.github.io/blogs/posts/2024_year_end_review/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Policy-gradient Algorithem</h2></header><div class=entry-content><p>Intro Policy-gradient 算法是无模型强化学习算法中的一种，也是Actor-Critic 算法中的Actor。 REINFORCE算法是一个比较基础的
 算法 学习目标 Policy-gradient 的目标函数定义如下：
 $$ \begin{equation} J(\theta)=\mathbb{E}[\sum_{t=0}^{T-1}r_{t+1}] \end{equation} $$
 它表示希望学习一个policy能够最大化累计未来回报（cumulative future reward）。 $r_{t+1}$表示在状态 $s_t$时采取动作 $a_t$从环境中获得的回报。 $r_{t+1} = R(s_t,a_t)$， $R(\cdot)$表示回报函数（reward function） 因为这是个最大化问题，所以可以使用梯度上升来优化policy。 $$ \begin{equation} \theta = \theta + \frac{\delta}{\delta \theta}J(\theta) \end{equation} $$ Policy 一般会使用神经网络进行参数化。
