@@ -9,7 +9,7 @@
       <url>https://ethanyklei.github.io/images/papermod-cover.png</url>
       <link>https://ethanyklei.github.io/images/papermod-cover.png</link>
     </image>
-    <generator>Hugo -- 0.139.3</generator>
+    <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 06 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ethanyklei.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -242,9 +242,14 @@ $$&lt;/p&gt;</description>
       <link>https://ethanyklei.github.io/publications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ethanyklei.github.io/publications/</guid>
-      <description>&lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;2025&#34;&gt;2025&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;https://ethanyklei.github.io/&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
+&lt;li&gt;📄 Yongqi Leng, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Meizhi Zhong, Bojian Xiong, Yurong Zhang, Yan Gao, Yao Hu, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2025.emnlp-industry.99/&#34;&gt;DecEx-RAG: Boosting Agentic Retrieval-Augmented Generation with Decision and Execution Optimization via Process Supervision&lt;/a&gt;. EMNLP (2025) Industry.&lt;/li&gt;
+&lt;li&gt;📄 Bojian Xiong, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Shaowei Zhang, Pengyun Zhu, Yan Liu, Yongqi Leng, Ling Shi, Meizhi Zhong, Yurong Zhang, Yan Gao, Yao Hu, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2025.emnlp-industry.109/&#34;&gt;Think-Search-Patch: A Retrieval-Augmented Reasoning Framework for Repository-Level Code Repair&lt;/a&gt;. EMNLP (2025) Industry.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
 &lt;li&gt;📄 Meizhi Zhong, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Yan Gao, Yao Hu, Kehai Chen, Min Zhang. &lt;a href=&#34;https://arxiv.org/abs/2406.13282&#34;&gt;Understanding the RoPE Extensions of Long-Context LLMs: An Attention Perspective
 &lt;/a&gt;. COLING(2025).&lt;/li&gt;
 &lt;li&gt;📄 Haoran Sun, Renren Jin, Shaoyang Xu, Leiyu Pan, Supryadi, Menglong Cui, Jiangcun Du, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Lei Yang, Ling Shi, Juesi Xiao, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/abs/2408.06273&#34;&gt;FuxiTranyu: A Multilingual Large Language Model Trained with Balanced Data&lt;/a&gt;. ArXiv(2024).&lt;/li&gt;
