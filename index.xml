@@ -11,8 +11,64 @@
     </image>
     <generator>Hugo -- 0.153.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 06 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ethanyklei.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2025，让一切，流动</title>
+      <link>https://ethanyklei.github.io/blogs/posts/2025_year_end_review/</link>
+      <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://ethanyklei.github.io/blogs/posts/2025_year_end_review/</guid>
+      <description>&lt;div class=&#34;quote-decorated&#34;&gt;
+    &lt;p&gt;我并不期望人生过的顺利，但我希望碰到人生难关的时候，自己可以是他的对手。&lt;/p&gt;
+    &lt;span class=&#34;author&#34;&gt;—— 加缪&lt;/span&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.quote-decorated {
+    position: relative;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 40px 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.quote-decorated::before,
+/* .quote-decorated::after {
+    content: &#39;&#34;&#39;;
+    position: absolute;
+    font-size: 80px;
+    color: #000;
+    opacity: 0.2;
+} */
+
+.quote-decorated::before {
+    top: 0;
+    left: 10px;
+}
+
+.quote-decorated::after {
+    bottom: -20px;
+    right: 10px;
+}
+
+.quote-decorated p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 0 15px 0;
+    font-family: STKaiti;
+}
+
+.quote-decorated .author {
+    display: block;
+    text-align: right;
+    color: #666;
+    font-family: STKaiti;
+}
+&lt;/style&gt;
+&lt;p&gt;回顾 2025，我很难用“成果”或“进展”来概括这一年。相比于向某个清晰目标逼近，这一年更像是在不断校准自身状态与理解方式。我逐渐意识到，真正困扰我的，并不是事情是否按计划发生，而是当计划失效时，我是否仍然具备应对的能力。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>在熵增的世界，我放弃了寻找确定性</title>
       <link>https://ethanyklei.github.io/blogs/posts/2025_mid-year_review/</link>
