@@ -1,0 +1,324 @@
+<!doctype html><html lang=zh-cn dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>OpenClaw 的框架内核：Pi | EthanLei</title><meta name=keywords content="Tech,Agent"><meta name=description content='在 AI Agent 领域，大家很容易陷入一种“堆料”思路：工具越来越多，配置越来越复杂，系统越来越像一台难以维护的巨型机器。
+Pi 反其道而行。它选择做减法，把框架压缩到最小，只保留真正必要的部分。
+它的核心设计理念，可以概括成一句话：
+
+    一个调用 LLM 的 while 循环，加上四个基础工具。
+
+Pi 是一个极简、可扩展的 AI 编码智能体框架（harness）。它并不试图替模型“想太多”，而是默认一个前提：像 Claude Sonnet 这样的模型，本身已经具备足够强的推理与规划能力。框架真正要做的，不是替它设计复杂工作流，而是给它一个稳定、清晰、低摩擦的执行环境。
+这也是 OpenClaw 建立在 Pi 之上后依然能保持高效的原因。它强大，不是因为设计复杂，而是因为设计克制。
+一句话理解 Pi
+如果要用最通俗的话解释 Pi，可以把它理解为：
+
+用户提出任务。
+LLM 决定下一步要做什么。
+框架执行工具调用，并把结果返回给 LLM。
+重复这个过程，直到任务完成。
+
+也就是说，Pi 的本质并不是一套庞大的 Agent 基础设施，而是一个非常稳定的“对话 - 执行 - 反馈”循环。
+核心循环：Pi 如何驱动一个 Agent
+下面这段代码，基本就是 Pi 的核心运行方式：
+// 外层循环：处理后续消息队列
+while (true) {
+    let hasMoreToolCalls = true;
+    let steeringAfterTools: AgentMessage[] | null = null;
+    // 内层循环：处理工具调用和转向消息
+    while (hasMoreToolCalls || pendingMessages.length > 0) {
+        // 1. 处理待处理消息（用户新输入或转向消息）
+        if (pendingMessages.length > 0) {
+            for (const message of pendingMessages) {
+                currentContext.messages.push(message);
+            }
+            pendingMessages = [];
+        }
+        // 2. 调用LLM获取响应
+        const message = await streamAssistantResponse(currentContext, config, signal, stream);
+        // 3. 检查是否有工具调用
+        const toolCalls = message.content.filter((c) => c.type === "toolCall");
+        hasMoreToolCalls = toolCalls.length > 0;
+        // 4. 执行工具调用
+        if (hasMoreToolCalls) {
+            const toolExecution = await executeToolCalls(
+                currentContext.tools, message, signal, stream, config.getSteeringMessages
+            );
+            // 工具结果会作为新消息加入上下文
+            for (const result of toolExecution.toolResults) {
+                currentContext.messages.push(result);
+            }
+        }
+        // 5. 检查转向消息（实时干预）
+        pendingMessages = (await config.getSteeringMessages?.()) || [];
+    }
+    // 6. 检查后续消息队列
+    const followUpMessages = (await config.getFollowUpMessages?.()) || [];
+    if (followUpMessages.length > 0) {
+        pendingMessages = followUpMessages;
+        continue; // 继续外层循环
+    }
+    break; // 没有更多消息，结束
+}
+这个循环看上去朴素，但正是 Pi 的关键。'><meta name=author content="Ethan"><link rel=canonical href=https://ethanyklei.github.io/blogs/posts/pi_arch/><meta property="og:title" content="OpenClaw 的框架内核：Pi"><meta property="og:description" content><meta property="og:image" content><meta property="og:url" content="https://ethanyklei.github.io/blogs/posts/pi_arch/"><link crossorigin=anonymous href=/assets/css/stylesheet.966493092d5d4abb8ea702e468e60ee29cde1cacd8893e68d11a9e9103088279.css integrity="sha256-lmSTCS1dSruOpwLkaOYO4pzeHKzYiT5o0RqekQMIgnk=" rel="preload stylesheet" as=style><link rel=icon href=https://ethanyklei.github.io/images/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://ethanyklei.github.io/images/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://ethanyklei.github.io/images/favicon-32x32.png><link rel=apple-touch-icon href=https://ethanyklei.github.io/images/apple-touch-icon.png><link rel=mask-icon href=https://ethanyklei.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-cn href=https://ethanyklei.github.io/blogs/posts/pi_arch/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0,tags:"ams",packages:{"[+]":["newcommand"]},macros:{"\\":`\\newline`}},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre"]}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><link rel=stylesheet href=/css/timeline.min.css><meta property="og:title" content="OpenClaw 的框架内核：Pi"><meta property="og:description" content='在 AI Agent 领域，大家很容易陷入一种“堆料”思路：工具越来越多，配置越来越复杂，系统越来越像一台难以维护的巨型机器。
+Pi 反其道而行。它选择做减法，把框架压缩到最小，只保留真正必要的部分。
+它的核心设计理念，可以概括成一句话：
+
+    一个调用 LLM 的 while 循环，加上四个基础工具。
+
+Pi 是一个极简、可扩展的 AI 编码智能体框架（harness）。它并不试图替模型“想太多”，而是默认一个前提：像 Claude Sonnet 这样的模型，本身已经具备足够强的推理与规划能力。框架真正要做的，不是替它设计复杂工作流，而是给它一个稳定、清晰、低摩擦的执行环境。
+这也是 OpenClaw 建立在 Pi 之上后依然能保持高效的原因。它强大，不是因为设计复杂，而是因为设计克制。
+一句话理解 Pi
+如果要用最通俗的话解释 Pi，可以把它理解为：
+
+用户提出任务。
+LLM 决定下一步要做什么。
+框架执行工具调用，并把结果返回给 LLM。
+重复这个过程，直到任务完成。
+
+也就是说，Pi 的本质并不是一套庞大的 Agent 基础设施，而是一个非常稳定的“对话 - 执行 - 反馈”循环。
+核心循环：Pi 如何驱动一个 Agent
+下面这段代码，基本就是 Pi 的核心运行方式：
+// 外层循环：处理后续消息队列
+while (true) {
+    let hasMoreToolCalls = true;
+    let steeringAfterTools: AgentMessage[] | null = null;
+    // 内层循环：处理工具调用和转向消息
+    while (hasMoreToolCalls || pendingMessages.length > 0) {
+        // 1. 处理待处理消息（用户新输入或转向消息）
+        if (pendingMessages.length > 0) {
+            for (const message of pendingMessages) {
+                currentContext.messages.push(message);
+            }
+            pendingMessages = [];
+        }
+        // 2. 调用LLM获取响应
+        const message = await streamAssistantResponse(currentContext, config, signal, stream);
+        // 3. 检查是否有工具调用
+        const toolCalls = message.content.filter((c) => c.type === "toolCall");
+        hasMoreToolCalls = toolCalls.length > 0;
+        // 4. 执行工具调用
+        if (hasMoreToolCalls) {
+            const toolExecution = await executeToolCalls(
+                currentContext.tools, message, signal, stream, config.getSteeringMessages
+            );
+            // 工具结果会作为新消息加入上下文
+            for (const result of toolExecution.toolResults) {
+                currentContext.messages.push(result);
+            }
+        }
+        // 5. 检查转向消息（实时干预）
+        pendingMessages = (await config.getSteeringMessages?.()) || [];
+    }
+    // 6. 检查后续消息队列
+    const followUpMessages = (await config.getFollowUpMessages?.()) || [];
+    if (followUpMessages.length > 0) {
+        pendingMessages = followUpMessages;
+        continue; // 继续外层循环
+    }
+    break; // 没有更多消息，结束
+}
+这个循环看上去朴素，但正是 Pi 的关键。'><meta property="og:type" content="article"><meta property="og:url" content="https://ethanyklei.github.io/blogs/posts/pi_arch/"><meta property="og:image" content="https://ethanyklei.github.io/images/papermod-cover.png"><meta property="article:section" content="blogs"><meta property="article:published_time" content="2026-03-08T00:00:00+00:00"><meta property="article:modified_time" content="2026-03-08T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://ethanyklei.github.io/images/papermod-cover.png"><meta name=twitter:title content="OpenClaw 的框架内核：Pi"><meta name=twitter:description content='在 AI Agent 领域，大家很容易陷入一种“堆料”思路：工具越来越多，配置越来越复杂，系统越来越像一台难以维护的巨型机器。
+Pi 反其道而行。它选择做减法，把框架压缩到最小，只保留真正必要的部分。
+它的核心设计理念，可以概括成一句话：
+
+    一个调用 LLM 的 while 循环，加上四个基础工具。
+
+Pi 是一个极简、可扩展的 AI 编码智能体框架（harness）。它并不试图替模型“想太多”，而是默认一个前提：像 Claude Sonnet 这样的模型，本身已经具备足够强的推理与规划能力。框架真正要做的，不是替它设计复杂工作流，而是给它一个稳定、清晰、低摩擦的执行环境。
+这也是 OpenClaw 建立在 Pi 之上后依然能保持高效的原因。它强大，不是因为设计复杂，而是因为设计克制。
+一句话理解 Pi
+如果要用最通俗的话解释 Pi，可以把它理解为：
+
+用户提出任务。
+LLM 决定下一步要做什么。
+框架执行工具调用，并把结果返回给 LLM。
+重复这个过程，直到任务完成。
+
+也就是说，Pi 的本质并不是一套庞大的 Agent 基础设施，而是一个非常稳定的“对话 - 执行 - 反馈”循环。
+核心循环：Pi 如何驱动一个 Agent
+下面这段代码，基本就是 Pi 的核心运行方式：
+// 外层循环：处理后续消息队列
+while (true) {
+    let hasMoreToolCalls = true;
+    let steeringAfterTools: AgentMessage[] | null = null;
+    // 内层循环：处理工具调用和转向消息
+    while (hasMoreToolCalls || pendingMessages.length > 0) {
+        // 1. 处理待处理消息（用户新输入或转向消息）
+        if (pendingMessages.length > 0) {
+            for (const message of pendingMessages) {
+                currentContext.messages.push(message);
+            }
+            pendingMessages = [];
+        }
+        // 2. 调用LLM获取响应
+        const message = await streamAssistantResponse(currentContext, config, signal, stream);
+        // 3. 检查是否有工具调用
+        const toolCalls = message.content.filter((c) => c.type === "toolCall");
+        hasMoreToolCalls = toolCalls.length > 0;
+        // 4. 执行工具调用
+        if (hasMoreToolCalls) {
+            const toolExecution = await executeToolCalls(
+                currentContext.tools, message, signal, stream, config.getSteeringMessages
+            );
+            // 工具结果会作为新消息加入上下文
+            for (const result of toolExecution.toolResults) {
+                currentContext.messages.push(result);
+            }
+        }
+        // 5. 检查转向消息（实时干预）
+        pendingMessages = (await config.getSteeringMessages?.()) || [];
+    }
+    // 6. 检查后续消息队列
+    const followUpMessages = (await config.getFollowUpMessages?.()) || [];
+    if (followUpMessages.length > 0) {
+        pendingMessages = followUpMessages;
+        continue; // 继续外层循环
+    }
+    break; // 没有更多消息，结束
+}
+这个循环看上去朴素，但正是 Pi 的关键。'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Blogs","item":"https://ethanyklei.github.io/zh-cn/blogs/"},{"@type":"ListItem","position":2,"name":"OpenClaw 的框架内核：Pi","item":"https://ethanyklei.github.io/blogs/posts/pi_arch/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenClaw 的框架内核：Pi","name":"OpenClaw 的框架内核：Pi","description":"在 AI Agent 领域，大家很容易陷入一种“堆料”思路：工具越来越多，配置越来越复杂，系统越来越像一台难以维护的巨型机器。\nPi 反其道而行。它选择做减法，把框架压缩到最小，只保留真正必要的部分。\n它的核心设计理念，可以概括成一句话：\n一个调用 LLM 的 while 循环，加上四个基础工具。\nPi 是一个极简、可扩展的 AI 编码智能体框架（harness）。它并不试图替模型“想太多”，而是默认一个前提：像 Claude Sonnet 这样的模型，本身已经具备足够强的推理与规划能力。框架真正要做的，不是替它设计复杂工作流，而是给它一个稳定、清晰、低摩擦的执行环境。\n这也是 OpenClaw 建立在 Pi 之上后依然能保持高效的原因。它强大，不是因为设计复杂，而是因为设计克制。\n一句话理解 Pi 如果要用最通俗的话解释 Pi，可以把它理解为：\n用户提出任务。 LLM 决定下一步要做什么。 框架执行工具调用，并把结果返回给 LLM。 重复这个过程，直到任务完成。 也就是说，Pi 的本质并不是一套庞大的 Agent 基础设施，而是一个非常稳定的“对话 - 执行 - 反馈”循环。\n核心循环：Pi 如何驱动一个 Agent 下面这段代码，基本就是 Pi 的核心运行方式：\n// 外层循环：处理后续消息队列 while (true) { let hasMoreToolCalls = true; let steeringAfterTools: AgentMessage[] | null = null; // 内层循环：处理工具调用和转向消息 while (hasMoreToolCalls || pendingMessages.length \u0026gt; 0) { // 1. 处理待处理消息（用户新输入或转向消息） if (pendingMessages.length \u0026gt; 0) { for (const message of pendingMessages) { currentContext.messages.push(message); } pendingMessages = []; } // 2. 调用LLM获取响应 const message = await streamAssistantResponse(currentContext, config, signal, stream); // 3. 检查是否有工具调用 const toolCalls = message.content.filter((c) =\u0026gt; c.type === \u0026#34;toolCall\u0026#34;); hasMoreToolCalls = toolCalls.length \u0026gt; 0; // 4. 执行工具调用 if (hasMoreToolCalls) { const toolExecution = await executeToolCalls( currentContext.tools, message, signal, stream, config.getSteeringMessages ); // 工具结果会作为新消息加入上下文 for (const result of toolExecution.toolResults) { currentContext.messages.push(result); } } // 5. 检查转向消息（实时干预） pendingMessages = (await config.getSteeringMessages?.()) || []; } // 6. 检查后续消息队列 const followUpMessages = (await config.getFollowUpMessages?.()) || []; if (followUpMessages.length \u0026gt; 0) { pendingMessages = followUpMessages; continue; // 继续外层循环 } break; // 没有更多消息，结束 } 这个循环看上去朴素，但正是 Pi 的关键。\n","keywords":["Tech","Agent"],"articleBody":"在 AI Agent 领域，大家很容易陷入一种“堆料”思路：工具越来越多，配置越来越复杂，系统越来越像一台难以维护的巨型机器。\nPi 反其道而行。它选择做减法，把框架压缩到最小，只保留真正必要的部分。\n它的核心设计理念，可以概括成一句话：\n一个调用 LLM 的 while 循环，加上四个基础工具。\nPi 是一个极简、可扩展的 AI 编码智能体框架（harness）。它并不试图替模型“想太多”，而是默认一个前提：像 Claude Sonnet 这样的模型，本身已经具备足够强的推理与规划能力。框架真正要做的，不是替它设计复杂工作流，而是给它一个稳定、清晰、低摩擦的执行环境。\n这也是 OpenClaw 建立在 Pi 之上后依然能保持高效的原因。它强大，不是因为设计复杂，而是因为设计克制。\n一句话理解 Pi 如果要用最通俗的话解释 Pi，可以把它理解为：\n用户提出任务。 LLM 决定下一步要做什么。 框架执行工具调用，并把结果返回给 LLM。 重复这个过程，直到任务完成。 也就是说，Pi 的本质并不是一套庞大的 Agent 基础设施，而是一个非常稳定的“对话 - 执行 - 反馈”循环。\n核心循环：Pi 如何驱动一个 Agent 下面这段代码，基本就是 Pi 的核心运行方式：\n// 外层循环：处理后续消息队列 while (true) { let hasMoreToolCalls = true; let steeringAfterTools: AgentMessage[] | null = null; // 内层循环：处理工具调用和转向消息 while (hasMoreToolCalls || pendingMessages.length \u003e 0) { // 1. 处理待处理消息（用户新输入或转向消息） if (pendingMessages.length \u003e 0) { for (const message of pendingMessages) { currentContext.messages.push(message); } pendingMessages = []; } // 2. 调用LLM获取响应 const message = await streamAssistantResponse(currentContext, config, signal, stream); // 3. 检查是否有工具调用 const toolCalls = message.content.filter((c) =\u003e c.type === \"toolCall\"); hasMoreToolCalls = toolCalls.length \u003e 0; // 4. 执行工具调用 if (hasMoreToolCalls) { const toolExecution = await executeToolCalls( currentContext.tools, message, signal, stream, config.getSteeringMessages ); // 工具结果会作为新消息加入上下文 for (const result of toolExecution.toolResults) { currentContext.messages.push(result); } } // 5. 检查转向消息（实时干预） pendingMessages = (await config.getSteeringMessages?.()) || []; } // 6. 检查后续消息队列 const followUpMessages = (await config.getFollowUpMessages?.()) || []; if (followUpMessages.length \u003e 0) { pendingMessages = followUpMessages; continue; // 继续外层循环 } break; // 没有更多消息，结束 } 这个循环看上去朴素，但正是 Pi 的关键。\n你可以把它理解成一个非常聪明的实习生：\n你先告诉它任务，例如“帮我定位这个 bug”。 它会先想一想，然后决定“我要读这个文件”或“我要跑一个命令”。 Pi 负责把这些动作执行掉，再把结果原样返回给它。 它再基于新结果继续判断下一步。 整个过程会一直持续，直到模型判断任务已经完成。\n这里最重要的一点是：Pi 没有引入复杂状态机，也没有预定义大量工作流。它只是把“思考”和“行动”组织成一个稳定循环，让模型自己主导问题求解。\n四个基础工具：少，但足够强 Pi 的另一层极简，体现在工具设计上。\n// 四个基础工具：read, bash, edit, write export const codingTools: Tool[] = [readTool, bashTool, editTool, writeTool]; // 只读工具集（用于探索阶段） export const readOnlyTools: Tool[] = [readTool, grepTool, findTool, lsTool]; Pi 不追求提供几十上百个专用工具，而是只保留四个最核心的能力：\nread：读取文件内容，相当于 AI 的眼睛。 bash：执行 Shell 命令，相当于 AI 的通用操作入口。 edit：对已有文件做精确修改。 write：创建新文件。 这四个工具之所以够用，关键在于 bash。\n一旦 Agent 能稳定执行 Bash，它实际上就获得了对整个 Unix 工具链的访问能力。grep、find、git、curl、npm，这些成熟工具都可以直接复用。与其为每个场景单独造一个“搜索工具”“下载工具”“测试工具”，不如把现成的系统能力交给模型。\n换句话说，Pi 的思路不是“给 AI 更多玩具”，而是“给 AI 一把真正的万能钥匙”。\n技能系统：按需加载，而不是一开始全塞进去 Pi 虽然基础工具很少，但并不意味着它不能扩展。它的扩展方式是 Skill。\nexport interface Skill { name: string; // 技能名称 description: string; // 技能描述（AI根据这个决定何时加载） filePath: string; // 技能文件路径 baseDir: string; // 技能根目录 source: string; // 来源（user/project/path） disableModelInvocation: boolean; // 是否禁用自动调用 } // 加载技能 export function loadSkills(options: LoadSkillsOptions = {}): LoadSkillsResult { // 从多个位置加载： // - ~/.pi/agent/skills/ (全局) // - .pi/skills/ (项目本地) // - CLI --skill 参数指定的路径 } // 将技能格式化为系统提示词 export function formatSkillsForPrompt(skills: Skill[]): string { const lines = [ \"The following skills provide specialized instructions for specific tasks.\", \"Use the read tool to load a skill's file when the task matches its description.\", ... \"\", ]; for (const skill of visibleSkills) { lines.push(` `); lines.push(` ${skill.name}`); lines.push(` ${skill.description}`); lines.push(` ${skill.filePath}`); lines.push(` `); } return lines.join(\"\\n\"); } 一个 Skill 本质上就是一个 SKILL.md 文件。里面不是代码插件，而是自然语言形式的操作说明：什么场景下该用它、该如何一步步完成任务。\n它的关键价值在于“按需加载”：\nPi 启动时，只告诉模型“有哪些技能存在”。 模型判断当前任务需要某个技能时，再主动去读取对应的 SKILL.md。 读完之后，再按照里面的步骤执行。 这样做有两个直接好处：\n避免一开始就把大量说明塞进上下文，减少信息负担。 扩展成本极低，新增能力往往只需要增加一个文档化的技能文件。 这使 Pi 的扩展机制更像“说明书系统”，而不是传统意义上的插件系统。\n转向与后续：用户可以随时介入 很多 Agent 框架的问题不在于能力不够，而在于一旦跑起来，用户很难中途纠偏。\nPi 专门设计了两类消息队列来解决这个问题：\nexport class Agent { private steeringQueue: AgentMessage[] = []; // 转向队列 private followUpQueue: AgentMessage[] = []; // 后续队列 /** * 发送转向消息：中断当前执行 * 在当前工具执行完成后立即处理，跳过剩余工具 */ steer(m: AgentMessage) { this.steeringQueue.push(m); } /** * 发送后续消息：在当前轮次完全结束后处理 */ followUp(m: AgentMessage) { this.followUpQueue.push(m); } } 在 agent-loop.ts 中，它们的作用也很直接：\n// 处理转向消息 async function executeToolCalls(...) { for (let index = 0; index \u003c toolCalls.length; index++) { const toolCall = toolCalls[index]; // 执行工具... const result = await tool.execute(...); // 关键：每个工具执行后检查转向消息 if (getSteeringMessages) { const steering = await getSteeringMessages(); if (steering.length \u003e 0) { steeringMessages = steering; // 跳过剩余工具调用 const remainingCalls = toolCalls.slice(index + 1); for (const skipped of remainingCalls) { results.push(skipToolCall(skipped, stream)); } break; } } } return { toolResults: results, steeringMessages }; } 这两个队列分别对应两种不同的交互意图：\nsteer：立刻纠偏。当前工具执行完后，马上处理新的指令，并跳过原计划中剩余的工具调用。 followUp：稍后处理。等这一轮任务结束后，再接着处理补充要求。 这个设计非常重要，因为它把控制权保留在用户手里。Agent 不是一旦开始就必须“一路跑到底”，而是可以像与人协作一样，随时被提醒、打断、修正方向。\n记忆策略：代码是真实来源，摘要只是压缩手段 Pi 在记忆问题上，也保持了同样的克制。\nexport interface CompactionSettings { enabled: boolean; reserveTokens: number; // 预留token数（默认16384） keepRecentTokens: number; // 保留最近对话token数（默认20000） } // 当上下文窗口快满时，压缩历史 export function shouldCompact(contextTokens: number, contextWindow: number, settings: CompactionSettings): boolean { return contextTokens \u003e contextWindow - settings.reserveTokens; } // 压缩策略：保留最近N个token的对话，更早的用LLM总结 export function findCutPoint( entries: SessionEntry[], startIndex: number, endIndex: number, keepRecentTokens: number, ): CutPointResult { // 从最新消息开始，向前累积token // 当超过keepRecentTokens时，在那个点\"切断\" // 更早的内容会被LLM总结成摘要 } 很多 Agent 系统喜欢引入外部记忆库、向量数据库，试图让模型“记住更多”。Pi 的判断更直接：在编码任务里，代码库本身才是最可靠的信息源。\n因此，它采用的是“上下文压缩”而不是“外部长期记忆”：\n最近的对话保留原文，保证精确性。 更早的历史压缩成摘要，节省上下文空间。 真正需要确认的事实，始终回到代码和文件本身去读取。 可以把它理解成下面这样：\n┌─────────────────────────────────────────────────────────┐ │ 上下文窗口（有限空间） │ ├─────────────────────────────────────────────────────────┤ │ 【远期】LLM 总结的摘要 │ ├─────────────────────────────────────────────────────────┤ │ 【近期】完整的详细对话 │ └─────────────────────────────────────────────────────────┘ 这种策略的优势很现实：\n不需要维护额外的记忆基础设施。 降低因过期记忆带来的偏差与幻觉。 强制 Agent 养成“以代码为准”的工作方式。 Pi 为什么有吸引力 Pi 最有意思的地方，不是它加了多少能力，而是它刻意不加什么。\n它没有试图用复杂系统替代模型本身的能力，也没有把框架做成一套沉重的工作流平台。它只是围绕几个关键问题给出足够好的答案：\n如何让模型稳定地循环思考与执行。 如何用最少工具覆盖最多场景。 如何按需扩展，而不是预先灌入一切。 如何让用户可以随时介入。 如何在长上下文下仍然保持信息可信。 Pi 的价值，不在于功能堆叠，而在于它对边界的克制。一个循环、四个工具、按需加载的技能，以及清晰的用户干预机制，就足以构成一个强大、稳定、可扩展的 AI 编码框架。\n这也是它给 Agent 设计带来的一个重要提醒：很多时候，真正难的不是“再加一个能力”，而是判断什么不该加。\n","wordCount":"618","inLanguage":"zh-cn","image":"https://ethanyklei.github.io/images/papermod-cover.png","datePublished":"2026-03-08T00:00:00Z","dateModified":"2026-03-08T00:00:00Z","author":{"@type":"Person","name":"Ethan"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ethanyklei.github.io/blogs/posts/pi_arch/"},"publisher":{"@type":"Organization","name":"EthanLei","logo":{"@type":"ImageObject","url":"https://ethanyklei.github.io/images/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://ethanyklei.github.io/ accesskey=h title="EthanLei (Alt + H)">EthanLei</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button><ul class=lang-switch><li>|</li><li><a href=https://ethanyklei.github.io/en/ title=English aria-label=English>English</a></li></ul></div></div><ul id=menu><li><a href=https://ethanyklei.github.io/zh-cn/blogs title=Blogs><span>Blogs</span></a></li><li><a href=https://ethanyklei.github.io/publications title=Publications><span>Publications</span></a></li><li><a href=https://ethanyklei.github.io/about title=About><span>About</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://ethanyklei.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://ethanyklei.github.io/zh-cn/blogs/>Blogs</a></div><h1 class="post-title entry-hint-parent">OpenClaw 的框架内核：Pi</h1><div class=post-meta><span title='2026-03-08 00:00:00 +0000 UTC'>March 8, 2026</span>&nbsp;·&nbsp;Ethan</div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e4%b8%80%e5%8f%a5%e8%af%9d%e7%90%86%e8%a7%a3-pi aria-label="一句话理解 Pi">一句话理解 Pi</a></li><li><a href=#%e6%a0%b8%e5%bf%83%e5%be%aa%e7%8e%afpi-%e5%a6%82%e4%bd%95%e9%a9%b1%e5%8a%a8%e4%b8%80%e4%b8%aa-agent aria-label="核心循环：Pi 如何驱动一个 Agent">核心循环：Pi 如何驱动一个 Agent</a></li><li><a href=#%e5%9b%9b%e4%b8%aa%e5%9f%ba%e7%a1%80%e5%b7%a5%e5%85%b7%e5%b0%91%e4%bd%86%e8%b6%b3%e5%a4%9f%e5%bc%ba aria-label=四个基础工具：少，但足够强>四个基础工具：少，但足够强</a></li><li><a href=#%e6%8a%80%e8%83%bd%e7%b3%bb%e7%bb%9f%e6%8c%89%e9%9c%80%e5%8a%a0%e8%bd%bd%e8%80%8c%e4%b8%8d%e6%98%af%e4%b8%80%e5%bc%80%e5%a7%8b%e5%85%a8%e5%a1%9e%e8%bf%9b%e5%8e%bb aria-label=技能系统：按需加载，而不是一开始全塞进去>技能系统：按需加载，而不是一开始全塞进去</a></li><li><a href=#%e8%bd%ac%e5%90%91%e4%b8%8e%e5%90%8e%e7%bb%ad%e7%94%a8%e6%88%b7%e5%8f%af%e4%bb%a5%e9%9a%8f%e6%97%b6%e4%bb%8b%e5%85%a5 aria-label=转向与后续：用户可以随时介入>转向与后续：用户可以随时介入</a></li><li><a href=#%e8%ae%b0%e5%bf%86%e7%ad%96%e7%95%a5%e4%bb%a3%e7%a0%81%e6%98%af%e7%9c%9f%e5%ae%9e%e6%9d%a5%e6%ba%90%e6%91%98%e8%a6%81%e5%8f%aa%e6%98%af%e5%8e%8b%e7%bc%a9%e6%89%8b%e6%ae%b5 aria-label=记忆策略：代码是真实来源，摘要只是压缩手段>记忆策略：代码是真实来源，摘要只是压缩手段</a></li><li><a href=#pi-%e4%b8%ba%e4%bb%80%e4%b9%88%e6%9c%89%e5%90%b8%e5%bc%95%e5%8a%9b aria-label="Pi 为什么有吸引力">Pi 为什么有吸引力</a></li></ul></div></details></div><div class=post-content><p>在 AI Agent 领域，大家很容易陷入一种“堆料”思路：工具越来越多，配置越来越复杂，系统越来越像一台难以维护的巨型机器。</p><p>Pi 反其道而行。它选择做减法，把框架压缩到最小，只保留真正必要的部分。</p><p>它的核心设计理念，可以概括成一句话：</p><div class=quote-decorated><p>一个调用 LLM 的 while 循环，加上四个基础工具。</p></div><p>Pi 是一个极简、可扩展的 AI 编码智能体框架（harness）。它并不试图替模型“想太多”，而是默认一个前提：像 Claude Sonnet 这样的模型，本身已经具备足够强的推理与规划能力。框架真正要做的，不是替它设计复杂工作流，而是给它一个稳定、清晰、低摩擦的执行环境。</p><p>这也是 OpenClaw 建立在 Pi 之上后依然能保持高效的原因。它强大，不是因为设计复杂，而是因为设计克制。</p><h2 id=一句话理解-pi>一句话理解 Pi<a hidden class=anchor aria-hidden=true href=#一句话理解-pi>#</a></h2><p>如果要用最通俗的话解释 Pi，可以把它理解为：</p><ol><li>用户提出任务。</li><li>LLM 决定下一步要做什么。</li><li>框架执行工具调用，并把结果返回给 LLM。</li><li>重复这个过程，直到任务完成。</li></ol><p>也就是说，Pi 的本质并不是一套庞大的 Agent 基础设施，而是一个非常稳定的“对话 - 执行 - 反馈”循环。</p><h2 id=核心循环pi-如何驱动一个-agent>核心循环：Pi 如何驱动一个 Agent<a hidden class=anchor aria-hidden=true href=#核心循环pi-如何驱动一个-agent>#</a></h2><p>下面这段代码，基本就是 Pi 的核心运行方式：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=line><span class=cl><span class=c1>// 外层循环：处理后续消息队列
+</span></span></span><span class=line><span class=cl><span class=k>while</span> <span class=p>(</span><span class=kc>true</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>hasMoreToolCalls</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>steeringAfterTools</span>: <span class=kt>AgentMessage</span><span class=p>[]</span> <span class=o>|</span> <span class=kc>null</span> <span class=o>=</span> <span class=kc>null</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 内层循环：处理工具调用和转向消息
+</span></span></span><span class=line><span class=cl>    <span class=k>while</span> <span class=p>(</span><span class=nx>hasMoreToolCalls</span> <span class=o>||</span> <span class=nx>pendingMessages</span><span class=p>.</span><span class=nx>length</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 1. 处理待处理消息（用户新输入或转向消息）
+</span></span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>pendingMessages</span><span class=p>.</span><span class=nx>length</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=p>(</span><span class=kr>const</span> <span class=nx>message</span> <span class=k>of</span> <span class=nx>pendingMessages</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>currentContext</span><span class=p>.</span><span class=nx>messages</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>message</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=nx>pendingMessages</span> <span class=o>=</span> <span class=p>[];</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 2. 调用LLM获取响应
+</span></span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>message</span> <span class=o>=</span> <span class=k>await</span> <span class=nx>streamAssistantResponse</span><span class=p>(</span><span class=nx>currentContext</span><span class=p>,</span> <span class=nx>config</span><span class=p>,</span> <span class=nx>signal</span><span class=p>,</span> <span class=nx>stream</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 3. 检查是否有工具调用
+</span></span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>toolCalls</span> <span class=o>=</span> <span class=nx>message</span><span class=p>.</span><span class=nx>content</span><span class=p>.</span><span class=nx>filter</span><span class=p>((</span><span class=nx>c</span><span class=p>)</span> <span class=o>=&gt;</span> <span class=nx>c</span><span class=p>.</span><span class=kr>type</span> <span class=o>===</span> <span class=s2>&#34;toolCall&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nx>hasMoreToolCalls</span> <span class=o>=</span> <span class=nx>toolCalls</span><span class=p>.</span><span class=nx>length</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 4. 执行工具调用
+</span></span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>hasMoreToolCalls</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>toolExecution</span> <span class=o>=</span> <span class=k>await</span> <span class=nx>executeToolCalls</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=nx>currentContext</span><span class=p>.</span><span class=nx>tools</span><span class=p>,</span> <span class=nx>message</span><span class=p>,</span> <span class=nx>signal</span><span class=p>,</span> <span class=nx>stream</span><span class=p>,</span> <span class=nx>config</span><span class=p>.</span><span class=nx>getSteeringMessages</span>
+</span></span><span class=line><span class=cl>            <span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=c1>// 工具结果会作为新消息加入上下文
+</span></span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=p>(</span><span class=kr>const</span> <span class=nx>result</span> <span class=k>of</span> <span class=nx>toolExecution</span><span class=p>.</span><span class=nx>toolResults</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>currentContext</span><span class=p>.</span><span class=nx>messages</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>result</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 5. 检查转向消息（实时干预）
+</span></span></span><span class=line><span class=cl>        <span class=nx>pendingMessages</span> <span class=o>=</span> <span class=p>(</span><span class=k>await</span> <span class=nx>config</span><span class=p>.</span><span class=nx>getSteeringMessages</span><span class=o>?</span><span class=p>.())</span> <span class=o>||</span> <span class=p>[];</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 6. 检查后续消息队列
+</span></span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>followUpMessages</span> <span class=o>=</span> <span class=p>(</span><span class=k>await</span> <span class=nx>config</span><span class=p>.</span><span class=nx>getFollowUpMessages</span><span class=o>?</span><span class=p>.())</span> <span class=o>||</span> <span class=p>[];</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>followUpMessages</span><span class=p>.</span><span class=nx>length</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>pendingMessages</span> <span class=o>=</span> <span class=nx>followUpMessages</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>continue</span><span class=p>;</span> <span class=c1>// 继续外层循环
+</span></span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>break</span><span class=p>;</span> <span class=c1>// 没有更多消息，结束
+</span></span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>这个循环看上去朴素，但正是 Pi 的关键。</p><p>你可以把它理解成一个非常聪明的实习生：</p><ul><li>你先告诉它任务，例如“帮我定位这个 bug”。</li><li>它会先想一想，然后决定“我要读这个文件”或“我要跑一个命令”。</li><li>Pi 负责把这些动作执行掉，再把结果原样返回给它。</li><li>它再基于新结果继续判断下一步。</li></ul><p>整个过程会一直持续，直到模型判断任务已经完成。</p><p>这里最重要的一点是：Pi 没有引入复杂状态机，也没有预定义大量工作流。它只是把“思考”和“行动”组织成一个稳定循环，让模型自己主导问题求解。</p><h2 id=四个基础工具少但足够强>四个基础工具：少，但足够强<a hidden class=anchor aria-hidden=true href=#四个基础工具少但足够强>#</a></h2><p>Pi 的另一层极简，体现在工具设计上。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=line><span class=cl><span class=c1>// 四个基础工具：read, bash, edit, write
+</span></span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kr>const</span> <span class=nx>codingTools</span>: <span class=kt>Tool</span><span class=p>[]</span> <span class=o>=</span> <span class=p>[</span><span class=nx>readTool</span><span class=p>,</span> <span class=nx>bashTool</span><span class=p>,</span> <span class=nx>editTool</span><span class=p>,</span> <span class=nx>writeTool</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=c1>// 只读工具集（用于探索阶段）
+</span></span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kr>const</span> <span class=nx>readOnlyTools</span>: <span class=kt>Tool</span><span class=p>[]</span> <span class=o>=</span> <span class=p>[</span><span class=nx>readTool</span><span class=p>,</span> <span class=nx>grepTool</span><span class=p>,</span> <span class=nx>findTool</span><span class=p>,</span> <span class=nx>lsTool</span><span class=p>];</span>
+</span></span></code></pre></div><p>Pi 不追求提供几十上百个专用工具，而是只保留四个最核心的能力：</p><ul><li><code>read</code>：读取文件内容，相当于 AI 的眼睛。</li><li><code>bash</code>：执行 Shell 命令，相当于 AI 的通用操作入口。</li><li><code>edit</code>：对已有文件做精确修改。</li><li><code>write</code>：创建新文件。</li></ul><p>这四个工具之所以够用，关键在于 <code>bash</code>。</p><p>一旦 Agent 能稳定执行 Bash，它实际上就获得了对整个 Unix 工具链的访问能力。<code>grep</code>、<code>find</code>、<code>git</code>、<code>curl</code>、<code>npm</code>，这些成熟工具都可以直接复用。与其为每个场景单独造一个“搜索工具”“下载工具”“测试工具”，不如把现成的系统能力交给模型。</p><p>换句话说，Pi 的思路不是“给 AI 更多玩具”，而是“给 AI 一把真正的万能钥匙”。</p><h2 id=技能系统按需加载而不是一开始全塞进去>技能系统：按需加载，而不是一开始全塞进去<a hidden class=anchor aria-hidden=true href=#技能系统按需加载而不是一开始全塞进去>#</a></h2><p>Pi 虽然基础工具很少，但并不意味着它不能扩展。它的扩展方式是 Skill。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=line><span class=cl><span class=kr>export</span> <span class=kr>interface</span> <span class=nx>Skill</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>name</span>: <span class=kt>string</span><span class=p>;</span>           <span class=c1>// 技能名称
+</span></span></span><span class=line><span class=cl>    <span class=nx>description</span>: <span class=kt>string</span><span class=p>;</span>    <span class=c1>// 技能描述（AI根据这个决定何时加载）
+</span></span></span><span class=line><span class=cl>    <span class=nx>filePath</span>: <span class=kt>string</span><span class=p>;</span>       <span class=c1>// 技能文件路径
+</span></span></span><span class=line><span class=cl>    <span class=nx>baseDir</span>: <span class=kt>string</span><span class=p>;</span>        <span class=c1>// 技能根目录
+</span></span></span><span class=line><span class=cl>    <span class=nx>source</span>: <span class=kt>string</span><span class=p>;</span>         <span class=c1>// 来源（user/project/path）
+</span></span></span><span class=line><span class=cl>    <span class=nx>disableModelInvocation</span>: <span class=kt>boolean</span><span class=p>;</span> <span class=c1>// 是否禁用自动调用
+</span></span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=c1>// 加载技能
+</span></span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kd>function</span> <span class=nx>loadSkills</span><span class=p>(</span><span class=nx>options</span>: <span class=kt>LoadSkillsOptions</span> <span class=o>=</span> <span class=p>{})</span><span class=o>:</span> <span class=nx>LoadSkillsResult</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 从多个位置加载：
+</span></span></span><span class=line><span class=cl>    <span class=c1>// - ~/.pi/agent/skills/ (全局)
+</span></span></span><span class=line><span class=cl>    <span class=c1>// - .pi/skills/ (项目本地)
+</span></span></span><span class=line><span class=cl>    <span class=c1>// - CLI --skill 参数指定的路径
+</span></span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=c1>// 将技能格式化为系统提示词
+</span></span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kd>function</span> <span class=nx>formatSkillsForPrompt</span><span class=p>(</span><span class=nx>skills</span>: <span class=kt>Skill</span><span class=p>[])</span><span class=o>:</span> <span class=kt>string</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>lines</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;The following skills provide specialized instructions for specific tasks.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Use the read tool to load a skill&#39;s file when the task matches its description.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=p>...</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&lt;available_skills&gt;&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kr>const</span> <span class=nx>skill</span> <span class=k>of</span> <span class=nx>visibleSkills</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>lines</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=sb>`  &lt;skill&gt;`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nx>lines</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=sb>`    &lt;name&gt;</span><span class=si>${</span><span class=nx>skill</span><span class=p>.</span><span class=nx>name</span><span class=si>}</span><span class=sb>&lt;/name&gt;`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nx>lines</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=sb>`    &lt;description&gt;</span><span class=si>${</span><span class=nx>skill</span><span class=p>.</span><span class=nx>description</span><span class=si>}</span><span class=sb>&lt;/description&gt;`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nx>lines</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=sb>`    &lt;location&gt;</span><span class=si>${</span><span class=nx>skill</span><span class=p>.</span><span class=nx>filePath</span><span class=si>}</span><span class=sb>&lt;/location&gt;`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nx>lines</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=sb>`  &lt;/skill&gt;`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>lines</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=s2>&#34;\n&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>一个 Skill 本质上就是一个 <code>SKILL.md</code> 文件。里面不是代码插件，而是自然语言形式的操作说明：什么场景下该用它、该如何一步步完成任务。</p><p>它的关键价值在于“按需加载”：</p><ol><li>Pi 启动时，只告诉模型“有哪些技能存在”。</li><li>模型判断当前任务需要某个技能时，再主动去读取对应的 <code>SKILL.md</code>。</li><li>读完之后，再按照里面的步骤执行。</li></ol><p>这样做有两个直接好处：</p><ul><li>避免一开始就把大量说明塞进上下文，减少信息负担。</li><li>扩展成本极低，新增能力往往只需要增加一个文档化的技能文件。</li></ul><p>这使 Pi 的扩展机制更像“说明书系统”，而不是传统意义上的插件系统。</p><h2 id=转向与后续用户可以随时介入>转向与后续：用户可以随时介入<a hidden class=anchor aria-hidden=true href=#转向与后续用户可以随时介入>#</a></h2><p>很多 Agent 框架的问题不在于能力不够，而在于一旦跑起来，用户很难中途纠偏。</p><p>Pi 专门设计了两类消息队列来解决这个问题：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=line><span class=cl><span class=kr>export</span> <span class=kr>class</span> <span class=nx>Agent</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>private</span> <span class=nx>steeringQueue</span>: <span class=kt>AgentMessage</span><span class=p>[]</span> <span class=o>=</span> <span class=p>[];</span>    <span class=c1>// 转向队列
+</span></span></span><span class=line><span class=cl>    <span class=kr>private</span> <span class=nx>followUpQueue</span>: <span class=kt>AgentMessage</span><span class=p>[]</span> <span class=o>=</span> <span class=p>[];</span>    <span class=c1>// 后续队列
+</span></span></span><span class=line><span class=cl>    <span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 发送转向消息：中断当前执行
+</span></span></span><span class=line><span class=cl><span class=cm>     * 在当前工具执行完成后立即处理，跳过剩余工具
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>steer</span><span class=p>(</span><span class=nx>m</span>: <span class=kt>AgentMessage</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>steeringQueue</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>m</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 发送后续消息：在当前轮次完全结束后处理
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>followUp</span><span class=p>(</span><span class=nx>m</span>: <span class=kt>AgentMessage</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>followUpQueue</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>m</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>在 <code>agent-loop.ts</code> 中，它们的作用也很直接：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=line><span class=cl><span class=c1>// 处理转向消息
+</span></span></span><span class=line><span class=cl><span class=kr>async</span> <span class=kd>function</span> <span class=nx>executeToolCalls</span><span class=p>(...)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>index</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>index</span> <span class=o>&lt;</span> <span class=nx>toolCalls</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>index</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>toolCall</span> <span class=o>=</span> <span class=nx>toolCalls</span><span class=p>[</span><span class=nx>index</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1>// 执行工具...
+</span></span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=k>await</span> <span class=nx>tool</span><span class=p>.</span><span class=nx>execute</span><span class=p>(...);</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1>// 关键：每个工具执行后检查转向消息
+</span></span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>getSteeringMessages</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>steering</span> <span class=o>=</span> <span class=k>await</span> <span class=nx>getSteeringMessages</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=nx>steering</span><span class=p>.</span><span class=nx>length</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>steeringMessages</span> <span class=o>=</span> <span class=nx>steering</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                <span class=c1>// 跳过剩余工具调用
+</span></span></span><span class=line><span class=cl>                <span class=kr>const</span> <span class=nx>remainingCalls</span> <span class=o>=</span> <span class=nx>toolCalls</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=nx>index</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=k>for</span> <span class=p>(</span><span class=kr>const</span> <span class=nx>skipped</span> <span class=k>of</span> <span class=nx>remainingCalls</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>results</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>skipToolCall</span><span class=p>(</span><span class=nx>skipped</span><span class=p>,</span> <span class=nx>stream</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>{</span> <span class=nx>toolResults</span>: <span class=kt>results</span><span class=p>,</span> <span class=nx>steeringMessages</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>这两个队列分别对应两种不同的交互意图：</p><ul><li><code>steer</code>：立刻纠偏。当前工具执行完后，马上处理新的指令，并跳过原计划中剩余的工具调用。</li><li><code>followUp</code>：稍后处理。等这一轮任务结束后，再接着处理补充要求。</li></ul><p>这个设计非常重要，因为它把控制权保留在用户手里。Agent 不是一旦开始就必须“一路跑到底”，而是可以像与人协作一样，随时被提醒、打断、修正方向。</p><h2 id=记忆策略代码是真实来源摘要只是压缩手段>记忆策略：代码是真实来源，摘要只是压缩手段<a hidden class=anchor aria-hidden=true href=#记忆策略代码是真实来源摘要只是压缩手段>#</a></h2><p>Pi 在记忆问题上，也保持了同样的克制。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=line><span class=cl><span class=kr>export</span> <span class=kr>interface</span> <span class=nx>CompactionSettings</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>enabled</span>: <span class=kt>boolean</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>reserveTokens</span>: <span class=kt>number</span><span class=p>;</span>      <span class=c1>// 预留token数（默认16384）
+</span></span></span><span class=line><span class=cl>    <span class=nx>keepRecentTokens</span>: <span class=kt>number</span><span class=p>;</span>   <span class=c1>// 保留最近对话token数（默认20000）
+</span></span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=c1>// 当上下文窗口快满时，压缩历史
+</span></span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kd>function</span> <span class=nx>shouldCompact</span><span class=p>(</span><span class=nx>contextTokens</span>: <span class=kt>number</span><span class=p>,</span> <span class=nx>contextWindow</span>: <span class=kt>number</span><span class=p>,</span> <span class=nx>settings</span>: <span class=kt>CompactionSettings</span><span class=p>)</span><span class=o>:</span> <span class=kr>boolean</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>contextTokens</span> <span class=o>&gt;</span> <span class=nx>contextWindow</span> <span class=o>-</span> <span class=nx>settings</span><span class=p>.</span><span class=nx>reserveTokens</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=c1>// 压缩策略：保留最近N个token的对话，更早的用LLM总结
+</span></span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kd>function</span> <span class=nx>findCutPoint</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=nx>entries</span>: <span class=kt>SessionEntry</span><span class=p>[],</span>
+</span></span><span class=line><span class=cl>    <span class=nx>startIndex</span>: <span class=kt>number</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>endIndex</span>: <span class=kt>number</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>keepRecentTokens</span>: <span class=kt>number</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>)</span><span class=o>:</span> <span class=nx>CutPointResult</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 从最新消息开始，向前累积token
+</span></span></span><span class=line><span class=cl>    <span class=c1>// 当超过keepRecentTokens时，在那个点&#34;切断&#34;
+</span></span></span><span class=line><span class=cl>    <span class=c1>// 更早的内容会被LLM总结成摘要
+</span></span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>很多 Agent 系统喜欢引入外部记忆库、向量数据库，试图让模型“记住更多”。Pi 的判断更直接：在编码任务里，代码库本身才是最可靠的信息源。</p><p>因此，它采用的是“上下文压缩”而不是“外部长期记忆”：</p><ul><li>最近的对话保留原文，保证精确性。</li><li>更早的历史压缩成摘要，节省上下文空间。</li><li>真正需要确认的事实，始终回到代码和文件本身去读取。</li></ul><p>可以把它理解成下面这样：</p><pre tabindex=0><code>┌─────────────────────────────────────────────────────────┐
+│  上下文窗口（有限空间）                                │
+├─────────────────────────────────────────────────────────┤
+│  【远期】LLM 总结的摘要                                │
+├─────────────────────────────────────────────────────────┤
+│  【近期】完整的详细对话                                │
+└─────────────────────────────────────────────────────────┘
+</code></pre><p>这种策略的优势很现实：</p><ul><li>不需要维护额外的记忆基础设施。</li><li>降低因过期记忆带来的偏差与幻觉。</li><li>强制 Agent 养成“以代码为准”的工作方式。</li></ul><h2 id=pi-为什么有吸引力>Pi 为什么有吸引力<a hidden class=anchor aria-hidden=true href=#pi-为什么有吸引力>#</a></h2><p>Pi 最有意思的地方，不是它加了多少能力，而是它刻意不加什么。</p><p>它没有试图用复杂系统替代模型本身的能力，也没有把框架做成一套沉重的工作流平台。它只是围绕几个关键问题给出足够好的答案：</p><ul><li>如何让模型稳定地循环思考与执行。</li><li>如何用最少工具覆盖最多场景。</li><li>如何按需扩展，而不是预先灌入一切。</li><li>如何让用户可以随时介入。</li><li>如何在长上下文下仍然保持信息可信。</li></ul><div class=quote-decorated><p>Pi 的价值，不在于功能堆叠，而在于它对边界的克制。一个循环、四个工具、按需加载的技能，以及清晰的用户干预机制，就足以构成一个强大、稳定、可扩展的 AI 编码框架。</p></div><p>这也是它给 Agent 设计带来的一个重要提醒：很多时候，真正难的不是“再加一个能力”，而是判断什么不该加。</p></div><footer class=post-footer><ul class=post-tags></ul><nav class=paginav><a class=next href=https://ethanyklei.github.io/blogs/posts/2025_year_end_review/><span class=title>»</span><br><span>2025，让一切，流动</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://ethanyklei.github.io/>EthanLei</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
