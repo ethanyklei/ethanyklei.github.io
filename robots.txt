@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://ethanyklei.github.io/sitemap.xml
