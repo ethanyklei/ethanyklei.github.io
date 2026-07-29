@@ -253,7 +253,7 @@ $$&lt;/p&gt;</description>
     &lt;p&gt;一个人应该能够换尿布，策划战争，杀猪，开船，设计房子，写十四行诗，结算账户，砌墙，接脱臼的骨头，安慰濒死的人，服从命令，发布命令，携手合作，独立行动，解数学方程，分析新问题，铲粪，电脑编程，做出可口的饭，善打架，勇敢地死去。只有昆虫才专业化。&lt;/p&gt;
     &lt;span class=&#34;author&#34;&gt;— 罗伯特海因莱因，《时间足够爱你》&lt;/span&gt;
 &lt;/div&gt;
-&lt;p&gt;Hello！我是雷易锟（Ethan Lei），也可以叫我 Kunkun——一名笃信直觉与热情的技术探索者（当然，也离不开🥖与🍺）。&lt;/p&gt;
+&lt;p&gt;Hello！我是雷易锟（Ethan Lei），也可以叫我 Kunkun——一名笃信直觉与热情的技术探索者。&lt;/p&gt;
 &lt;p&gt;2017 至 2021 年，我于东北大学取得软件工程学士学位；2021 至 2024 年，我在天津大学&lt;a href=&#34;https://tjunlp-lab.github.io/&#34;&gt;自然语言处理实验室&lt;/a&gt;（TJUNLP）&lt;a href=&#34;https://dyxiong.github.io/&#34;&gt;熊德意&lt;/a&gt;教授的指导下完成硕士学业，深耕自然语言处理研究。&lt;/p&gt;
 &lt;p&gt;如今，我仍行走在探索人生可能性的路上，追寻下一个时代的技术范式。&lt;/p&gt;
 &lt;p&gt;我的研究兴趣主要集中在：&lt;/p&gt;
@@ -278,15 +278,15 @@ $$&lt;/p&gt;</description>
 - 🧑‍🎓&amp;emsp;2019.09~2020.01: 交换生, 北海道大学. 情报工程专业. 
 - 🧑‍🎓&amp;emsp;2017.09~2021.09: 本科生, 东北大学. 软件工程专业.  --&gt;
 &lt;section class=&#34;experience-timeline&#34; aria-label=&#34;Experience timeline&#34;&gt;
-  &lt;ol class=&#34;timeline timeline-horizontal&#34;&gt;
+  &lt;ol class=&#34;timeline&#34;&gt;
     
     &lt;li class=&#34;timeline-item&#34;&gt;
-      &lt;div class=&#34;timeline-info&#34;&gt;
-        &lt;span&gt;2025.09 ~ Now&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;div class=&#34;timeline-marker&#34; aria-hidden=&#34;true&#34;&gt;&lt;/div&gt;
+      &lt;time class=&#34;timeline-date&#34;&gt;2025.09 ~ Now&lt;/time&gt;
       &lt;article class=&#34;timeline-content&#34;&gt;
-        &lt;h3 class=&#34;timeline-title&#34;&gt;字节跳动&lt;/h3&gt;
+        &lt;h3 class=&#34;timeline-title&#34;&gt;
+          字节跳动
+          &lt;span class=&#34;now-badge&#34;&gt;Now&lt;/span&gt;
+        &lt;/h3&gt;
         &lt;p class=&#34;timeline-position&#34;&gt;🧑‍💻 算法工程师&lt;/p&gt;</description>
     </item>
     <item>
