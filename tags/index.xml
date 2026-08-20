@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Tags on EthanLei</title>
-		<link>https://ethanyklei.github.io/tags/</link>
+		<link>https://ethanyklei.com/tags/</link>
 		<description>Recent content in Tags on EthanLei</description>
 		<generator>Hugo</generator>
 		<language>zh-cn</language>
@@ -12,33 +12,33 @@
 		
 			<lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="https://ethanyklei.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://ethanyklei.com/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Agent</title>
-				<link>https://ethanyklei.github.io/tags/agent/</link>
+				<link>https://ethanyklei.com/tags/agent/</link>
 				<pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/tags/agent/</guid>
+				<guid>https://ethanyklei.com/tags/agent/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Tech</title>
-				<link>https://ethanyklei.github.io/tags/tech/</link>
+				<link>https://ethanyklei.com/tags/tech/</link>
 				<pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/tags/tech/</guid>
+				<guid>https://ethanyklei.com/tags/tech/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Life</title>
-				<link>https://ethanyklei.github.io/tags/life/</link>
+				<link>https://ethanyklei.com/tags/life/</link>
 				<pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/tags/life/</guid>
+				<guid>https://ethanyklei.com/tags/life/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>RL</title>
-				<link>https://ethanyklei.github.io/tags/rl/</link>
+				<link>https://ethanyklei.com/tags/rl/</link>
 				<pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/tags/rl/</guid>
+				<guid>https://ethanyklei.com/tags/rl/</guid>
 				<description></description>
 			</item>
 	</channel>

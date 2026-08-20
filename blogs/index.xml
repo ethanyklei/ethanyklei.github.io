@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>博客 on EthanLei</title>
-		<link>https://ethanyklei.github.io/blogs/</link>
+		<link>https://ethanyklei.com/blogs/</link>
 		<description>Recent content in 博客 on EthanLei</description>
 		<generator>Hugo</generator>
 		<language>zh-cn</language>
@@ -12,54 +12,54 @@
 		
 			<lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="https://ethanyklei.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://ethanyklei.com/blogs/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>从 Prompt 到 Harness：Agent 时代，AI 工程的重心正在外移</title>
-				<link>https://ethanyklei.github.io/blogs/posts/prompt_to_harness/</link>
+				<link>https://ethanyklei.com/blogs/posts/prompt_to_harness/</link>
 				<pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/blogs/posts/prompt_to_harness/</guid>
+				<guid>https://ethanyklei.com/blogs/posts/prompt_to_harness/</guid>
 				<description>&lt;p&gt;最近 “Harness Engineering” 这个词越来越常见。但看了很多文章之后，我有个很强烈的感觉：不少内容其实是在堆概念。读的时候觉得很新，读完之后却很难落到实践里。&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>AI时代，你需要代表作</title>
-				<link>https://ethanyklei.github.io/blogs/posts/ai_era_you_need_a_masterpiece/</link>
+				<link>https://ethanyklei.com/blogs/posts/ai_era_you_need_a_masterpiece/</link>
 				<pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/blogs/posts/ai_era_you_need_a_masterpiece/</guid>
+				<guid>https://ethanyklei.com/blogs/posts/ai_era_you_need_a_masterpiece/</guid>
 				<description>&lt;p&gt;过去很长一段时间里，一个人的职业价值，常常和平台深度绑定。尤其在互联网时代，大厂名字、岗位头衔、业务规模，几乎就是能力证明。市场默认你进过大厂，就意味着你通过了筛选、接受过训练、参与过复杂项目。于是，一个人待过什么公司、在哪里待了多久，往往直接影响外界对他的定价。&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>OpenClaw 的框架内核：Pi</title>
-				<link>https://ethanyklei.github.io/blogs/posts/pi_arch/</link>
+				<link>https://ethanyklei.com/blogs/posts/pi_arch/</link>
 				<pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/blogs/posts/pi_arch/</guid>
+				<guid>https://ethanyklei.com/blogs/posts/pi_arch/</guid>
 				<description>&lt;p&gt;在 AI Agent 领域，大家很容易陷入一种“堆料”思路：工具越来越多，配置越来越复杂，系统越来越像一台难以维护的巨型机器。&lt;/p&gt;&#xA;&lt;p&gt;Pi 反其道而行。它选择做减法，把框架压缩到最小，只保留真正必要的部分。&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>2025，让一切，流动</title>
-				<link>https://ethanyklei.github.io/blogs/posts/2025_year_end_review/</link>
+				<link>https://ethanyklei.com/blogs/posts/2025_year_end_review/</link>
 				<pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/blogs/posts/2025_year_end_review/</guid>
+				<guid>https://ethanyklei.com/blogs/posts/2025_year_end_review/</guid>
 				<description>&lt;div class=&#34;quote-decorated&#34;&gt;&#xA;    &lt;p&gt;我并不期望人生过的顺利，但我希望碰到人生难关的时候，自己可以是他的对手。&lt;/p&gt;&#xA;    &lt;span class=&#34;author&#34;&gt;—— 加缪&lt;/span&gt;&#xA;&lt;/div&gt;&#xA;&lt;style&gt;&#xA;.quote-decorated {&#xA;    position: relative;&#xA;    max-width: 1000px;&#xA;    margin: 20px auto;&#xA;    padding: 40px 30px;&#xA;    background: #fff;&#xA;    border-radius: 15px;&#xA;    box-shadow: 0 5px 15px rgba(0,0,0,0.08);&#xA;}&#xA;&#xA;.quote-decorated::before,&#xA;/* .quote-decorated::after {&#xA;    content: &#39;&#34;&#39;;&#xA;    position: absolute;&#xA;    font-size: 80px;&#xA;    color: #000;&#xA;    opacity: 0.2;&#xA;} */&#xA;&#xA;.quote-decorated::before {&#xA;    top: 0;&#xA;    left: 10px;&#xA;}&#xA;&#xA;.quote-decorated::after {&#xA;    bottom: -20px;&#xA;    right: 10px;&#xA;}&#xA;&#xA;.quote-decorated p {&#xA;    font-size: 20px;&#xA;    line-height: 1.6;&#xA;    color: #333;&#xA;    margin: 0 0 15px 0;&#xA;    font-family: STKaiti;&#xA;}&#xA;&#xA;.quote-decorated .author {&#xA;    display: block;&#xA;    text-align: right;&#xA;    color: #666;&#xA;    font-family: STKaiti;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;p&gt;回顾 2025，我很难用“成果”或“进展”来概括这一年。相比于向某个清晰目标逼近，这一年更像是在不断校准自身状态与理解方式。我逐渐意识到，真正困扰我的，并不是事情是否按计划发生，而是当计划失效时，我是否仍然具备应对的能力。&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>在熵增的世界，我放弃了寻找确定性</title>
-				<link>https://ethanyklei.github.io/blogs/posts/2025_mid-year_review/</link>
+				<link>https://ethanyklei.com/blogs/posts/2025_mid-year_review/</link>
 				<pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/blogs/posts/2025_mid-year_review/</guid>
+				<guid>https://ethanyklei.com/blogs/posts/2025_mid-year_review/</guid>
 				<description>&lt;blockquote&gt;&#xA;&lt;p&gt;熵增是永恒的宿命，与其在不确定的洪流中执意追寻确定，不如向内深耕自我，随势流转，随心而行。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;引子&#34;&gt;引子&lt;/h2&gt;&#xA;&lt;p&gt;九月，我做了一个重要的决定：离开小红书，开启我的下一站旅程。这个决定，源于我不再想追寻那份看似忽远忽近的确定性，而是渴望去丰富自己的经历、提升自己的认知，从而有能力去抵抗这个熵增世界所带来的不确定。&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>2024, Not bad.</title>
-				<link>https://ethanyklei.github.io/blogs/posts/2024_year_end_review/</link>
+				<link>https://ethanyklei.com/blogs/posts/2024_year_end_review/</link>
 				<pubDate>Mon, 30 Dec 2024 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/blogs/posts/2024_year_end_review/</guid>
+				<guid>https://ethanyklei.com/blogs/posts/2024_year_end_review/</guid>
 				<description>&lt;blockquote&gt;&#xA;&lt;p&gt;Warning：这是一个矫情的、敏感的双鱼男的自述，带有强烈的个人主观情感偏见。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;p&gt;小时候，我常说：“我想做这个，我想做那个。”，长大了，我却常说：“我不能做这个，我不能做那个。”&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Policy-gradient Algorithem</title>
-				<link>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</link>
+				<link>https://ethanyklei.com/blogs/posts/policy_gradient_algorithem/</link>
 				<pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</guid>
+				<guid>https://ethanyklei.com/blogs/posts/policy_gradient_algorithem/</guid>
 				<description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;Policy-gradient 算法是无模型强化学习算法中的一种，也是Actor-Critic 算法中的Actor。&#xA;REINFORCE算法是一个比较基础的&lt;/p&gt;&#xA;&lt;h2 id=&#34;算法&#34;&gt;算法&lt;/h2&gt;&#xA;&lt;h3 id=&#34;学习目标&#34;&gt;学习目标&lt;/h3&gt;&#xA;&lt;p&gt;Policy-gradient 的目标函数定义如下：&lt;/p&gt;</description>
 			</item>
 	</channel>
