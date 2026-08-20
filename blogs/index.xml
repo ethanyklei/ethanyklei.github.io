@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Mon, 16 Mar 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://ethanyklei.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>从 Prompt 到 Harness：Agent 时代，AI 工程的重心正在外移</title>
+				<link>https://ethanyklei.github.io/blogs/posts/prompt_to_harness/</link>
+				<pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+				<guid>https://ethanyklei.github.io/blogs/posts/prompt_to_harness/</guid>
+				<description>&lt;p&gt;最近 “Harness Engineering” 这个词越来越常见。但看了很多文章之后，我有个很强烈的感觉：不少内容其实是在堆概念。读的时候觉得很新，读完之后却很难落到实践里。&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>AI时代，你需要代表作</title>
 				<link>https://ethanyklei.github.io/blogs/posts/ai_era_you_need_a_masterpiece/</link>

@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Blogs on EthanLei</title>
-    <link>https://ethanyklei.github.io/zh-cn/blogs/</link>
+    <link>http://localhost:1313/zh-cn/blogs/</link>
     <description>Recent content in Blogs on EthanLei</description>
     <image>
       <title>EthanLei</title>
-      <url>https://ethanyklei.github.io/images/papermod-cover.png</url>
-      <link>https://ethanyklei.github.io/images/papermod-cover.png</link>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.164.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 08 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://ethanyklei.github.io/zh-cn/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/zh-cn/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenClaw 的框架内核：Pi</title>
-      <link>https://ethanyklei.github.io/blogs/posts/pi_arch/</link>
+      <link>http://localhost:1313/blogs/posts/pi_arch/</link>
       <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/blogs/posts/pi_arch/</guid>
+      <guid>http://localhost:1313/blogs/posts/pi_arch/</guid>
       <description>OpenClaw 的内核 Pi：一个循环、四个工具。揭秘这个极简框架如何通过做减法，实现高效、可扩展的 AI 编码智能体运行时。</description>
     </item>
     <item>
       <title>2025，让一切，流动</title>
-      <link>https://ethanyklei.github.io/blogs/posts/2025_year_end_review/</link>
+      <link>http://localhost:1313/blogs/posts/2025_year_end_review/</link>
       <pubDate>Sun, 04 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/blogs/posts/2025_year_end_review/</guid>
+      <guid>http://localhost:1313/blogs/posts/2025_year_end_review/</guid>
       <description>&lt;div class=&#34;quote-decorated&#34;&gt;
     &lt;p&gt;我并不期望人生过的顺利，但我希望碰到人生难关的时候，自己可以是他的对手。&lt;/p&gt;
     &lt;span class=&#34;author&#34;&gt;—— 加缪&lt;/span&gt;
@@ -78,9 +78,9 @@
     </item>
     <item>
       <title>在熵增的世界，我放弃了寻找确定性</title>
-      <link>https://ethanyklei.github.io/blogs/posts/2025_mid-year_review/</link>
+      <link>http://localhost:1313/blogs/posts/2025_mid-year_review/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/blogs/posts/2025_mid-year_review/</guid>
+      <guid>http://localhost:1313/blogs/posts/2025_mid-year_review/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;熵增是永恒的宿命，与其在不确定的洪流中执意追寻确定，不如向内深耕自我，随势流转，随心而行。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -122,9 +122,9 @@
     </item>
     <item>
       <title>2024, Not bad.</title>
-      <link>https://ethanyklei.github.io/blogs/posts/2024_year_end_review/</link>
+      <link>http://localhost:1313/blogs/posts/2024_year_end_review/</link>
       <pubDate>Mon, 30 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/blogs/posts/2024_year_end_review/</guid>
+      <guid>http://localhost:1313/blogs/posts/2024_year_end_review/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Warning：这是一个矫情的、敏感的双鱼男的自述，带有强烈的个人主观情感偏见。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -189,9 +189,9 @@
     </item>
     <item>
       <title>Policy-gradient Algorithem</title>
-      <link>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</link>
+      <link>http://localhost:1313/blogs/posts/policy_gradient_algorithem/</link>
       <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</guid>
+      <guid>http://localhost:1313/blogs/posts/policy_gradient_algorithem/</guid>
       <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;Policy-gradient 算法是无模型强化学习算法中的一种，也是Actor-Critic 算法中的Actor。
 REINFORCE算法是一个比较基础的&lt;/p&gt;

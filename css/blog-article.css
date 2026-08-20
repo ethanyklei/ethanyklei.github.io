@@ -130,12 +130,19 @@ html[lang="en"] .post-article__dek {
   margin-top: -0.15em;
 }
 
+.post-article__body h1,
 .post-article__body h2,
 .post-article__body h3,
 .post-article__body h4 {
   color: var(--article-ink);
   font-weight: 600;
   letter-spacing: -0.015em;
+}
+
+.post-article__body h1 {
+  margin: 2.8em 0 0.8em;
+  font-size: 1.75rem;
+  line-height: 1.25;
 }
 
 .post-article__body h2 {
@@ -179,6 +186,19 @@ html[lang="en"] .post-article__dek {
 .post-article__body ul,
 .post-article__body ol {
   padding-inline-start: 1.25em;
+  list-style-position: outside;
+}
+
+.post-article__body ul {
+  list-style-type: disc;
+}
+
+.post-article__body ol {
+  list-style-type: decimal;
+}
+
+.post-article__body ul ul {
+  list-style-type: circle;
 }
 
 .post-article__body li {

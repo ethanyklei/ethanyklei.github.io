@@ -1,29 +1,105 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>EthanLei</title>
-		<link>https://ethanyklei.github.io/en/</link>
-		<description>Recent content on EthanLei</description>
-		<generator>Hugo</generator>
-		<language>en</language>
-		
-		
-		
-		
-			<atom:link href="https://ethanyklei.github.io/en/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>About Me</title>
-				<link>https://ethanyklei.github.io/en/about/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/en/about/</guid>
-				<description>&lt;div class=&#34;quote-decorated&#34;&gt;&#xA;    &lt;p&gt;A human being should be able to change a diaper, plan an invasion, butcher a hog, conn a ship, design a building, write a sonnet, balance accounts, build a wall, set a bone, comfort the dying, take orders, give orders, cooperate, act alone, solve equations, analyze a new problem, pitch manure, program a computer, cook a tasty meal, fight efficiently, die gallantly. Specialization is for insects.&lt;/p&gt;&#xA;    &lt;span class=&#34;author&#34;&gt;— Robert Heinlein, Time Enough for Love&lt;/span&gt;&#xA;&lt;/div&gt;&#xA;&lt;style&gt;&#xA;.quote-decorated {&#xA;    position: relative;&#xA;    max-width: 1000px;&#xA;    margin: 20px auto;&#xA;    padding: 40px 30px;&#xA;    background: #fff;&#xA;    border-radius: 15px;&#xA;    box-shadow: 0 5px 15px rgba(0,0,0,0.08);&#xA;}&#xA;&#xA;.quote-decorated::before,&#xA;/* .quote-decorated::after {&#xA;    content: &#39;&#34;&#39;;&#xA;    position: absolute;&#xA;    font-size: 80px;&#xA;    color: #000;&#xA;    opacity: 0.2;&#xA;} */&#xA;&#xA;.quote-decorated::before {&#xA;    top: 0;&#xA;    left: 10px;&#xA;}&#xA;&#xA;.quote-decorated::after {&#xA;    bottom: -20px;&#xA;    right: 10px;&#xA;}&#xA;&#xA;.quote-decorated p {&#xA;    font-size: 20px;&#xA;    line-height: 1.6;&#xA;    color: #333;&#xA;    margin: 0 0 15px 0;&#xA;    font-family: &#34;Nothing You Could Do&#34;;&#xA;    font-style: italic;&#xA;}&#xA;&#xA;.quote-decorated .author {&#xA;    display: block;&#xA;    text-align: right;&#xA;    color: #666;&#xA;    font-style: italic;&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;p&gt;Hello! I&amp;rsquo;m Yikun Lei (Ethan Lei), and you can also call me Kunkun — a technology explorer who believes in following intuition and passion.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>Publications</title>
-				<link>https://ethanyklei.github.io/en/publications/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://ethanyklei.github.io/en/publications/</guid>
-				<description></description>
-			</item>
-	</channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>EthanLei</title>
+    <link>http://localhost:1313/en/</link>
+    <description>Recent content on EthanLei</description>
+    <image>
+      <title>EthanLei</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.164.0</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>http://localhost:1313/en/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/about/</guid>
+      <description>&lt;div class=&#34;quote-decorated&#34;&gt;
+    &lt;p&gt;A human being should be able to change a diaper, plan an invasion, butcher a hog, conn a ship, design a building, write a sonnet, balance accounts, build a wall, set a bone, comfort the dying, take orders, give orders, cooperate, act alone, solve equations, analyze a new problem, pitch manure, program a computer, cook a tasty meal, fight efficiently, die gallantly. Specialization is for insects.&lt;/p&gt;
+    &lt;span class=&#34;author&#34;&gt;— Robert Heinlein, Time Enough for Love&lt;/span&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.quote-decorated {
+    position: relative;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 40px 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.quote-decorated::before,
+/* .quote-decorated::after {
+    content: &#39;&#34;&#39;;
+    position: absolute;
+    font-size: 80px;
+    color: #000;
+    opacity: 0.2;
+} */
+
+.quote-decorated::before {
+    top: 0;
+    left: 10px;
+}
+
+.quote-decorated::after {
+    bottom: -20px;
+    right: 10px;
+}
+
+.quote-decorated p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 0 15px 0;
+    font-family: &#34;Nothing You Could Do&#34;;
+    font-style: italic;
+}
+
+.quote-decorated .author {
+    display: block;
+    text-align: right;
+    color: #666;
+    font-style: italic;
+}
+&lt;/style&gt;
+&lt;p&gt;Hello! I&amp;rsquo;m Yikun Lei (Ethan Lei), and you can also call me Kunkun — a technology explorer who believes in following intuition and passion.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Publications</title>
+      <link>http://localhost:1313/en/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/publications/</guid>
+      <description>&lt;h2 id=&#34;2025&#34;&gt;2025&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📄 Yongqi Leng, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Meizhi Zhong, Bojian Xiong, Yurong Zhang, Yan Gao, Yao Hu, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2025.emnlp-industry.99/&#34;&gt;DecEx-RAG: Boosting Agentic Retrieval-Augmented Generation with Decision and Execution Optimization via Process Supervision&lt;/a&gt;. EMNLP (2025) Industry.&lt;/li&gt;
+&lt;li&gt;📄 Bojian Xiong, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Shaowei Zhang, Pengyun Zhu, Yan Liu, Yongqi Leng, Ling Shi, Meizhi Zhong, Yurong Zhang, Yan Gao, Yao Hu, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2025.emnlp-industry.109/&#34;&gt;Think-Search-Patch: A Retrieval-Augmented Reasoning Framework for Repository-Level Code Repair&lt;/a&gt;. EMNLP (2025) Industry.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📄 Meizhi Zhong, Xikai Liu, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yan Gao, Yao Hu, Kehai Chen and Min Zhang. &lt;a href=&#34;https://aclanthology.org/2025.coling-main.596/&#34;&gt;ZigZagKV: Dynamic KV Cache Compression for Long-context Modeling based on Layer Uncertainty&lt;/a&gt;. COLING(2025)&lt;/li&gt;
+&lt;li&gt;📄 Meizhi Zhong, Chen Zhang, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Xikai Liu, Yan Gao, Yao Hu, Kehai Chen, Min Zhang. &lt;a href=&#34;https://arxiv.org/abs/2406.13282&#34;&gt;Understanding the RoPE Extensions of Long-Context LLMs: An Attention Perspective
+&lt;/a&gt;. COLING(2025).&lt;/li&gt;
+&lt;li&gt;📄 Haoran Sun, Renren Jin, Shaoyang Xu, Leiyu Pan, Supryadi, Menglong Cui, Jiangcun Du, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Lei Yang, Ling Shi, Juesi Xiao, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/abs/2408.06273&#34;&gt;FuxiTranyu: A Multilingual Large Language Model Trained with Balanced Data&lt;/a&gt;. ArXiv(2024).&lt;/li&gt;
+&lt;li&gt;📄 Hao Wang, Zhengshan Xue, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/10445811/&#34;&gt;End-to-End Speech Translation with Mutual Knowledge Distillation&lt;/a&gt;. ICASSP (2024).&lt;/li&gt;
+&lt;li&gt;📄 Xiaohu Zhao, Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://www.sciencedirect.com/science/article/abs/pii/S0957417424001064&#34;&gt;Regularizing Cross-Attention Learning for End-to-End Speech Translation with ASR and MT Attention Matrices&lt;/a&gt;. Expert Systems with Applications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2023&#34;&gt;2023&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📄 &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Zhengshan Xue, Xiaohu Zhao, Haoran Sun, Shaolin Zhu, Xiaodong Lin, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.findings-acl.195.pdf&#34;&gt;CKDST: Comprehensively and Effectively Distill Knowledge from Machine Translation to End-to-End Speech Translation&lt;/a&gt;. ACL Findings(2023).&lt;/li&gt;
+&lt;li&gt;📄 Shaolin Zhu, Shangjie Li, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.acl-long.751.pdf&#34;&gt;PEIT: Bridging the Modality Gap with Pre-trained Models for End-to-End Image Translation&lt;/a&gt;. ACL(2023).&lt;/li&gt;
+&lt;li&gt;📄 Haoran Sun, Xiaohu Zhao, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://arxiv.org/pdf/2310.20456&#34;&gt;Towards a Deep Understanding of Multilingual End-to-End Speech Translation&lt;/a&gt;. EMNLP Findings(2023).&lt;/li&gt;
+&lt;li&gt;📄 Xiaohu Zhao, Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Shaolin Zhu, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2023.findings-emnlp.394.pdf&#34;&gt;CCSRD: Content-Centric Speech Representation Disentanglement Learning for End-to-End Speech Translation&lt;/a&gt;. EMNLP Findings(2023).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2022&#34;&gt;2022&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📄 &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Yuqi Ren, Deyi Xiong. &lt;a href=&#34;https://aclanthology.org/2022.coling-1.462.pdf&#34;&gt;CoDoNMT: Modeling Cohesion Devices for Document-Level Neural Machine Translation&lt;/a&gt;. COLING(2022).&lt;/li&gt;
+&lt;li&gt;📄 Haoran Sun, &lt;strong&gt;Yikun Lei&lt;/strong&gt;, Deyi Xiong. &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/9961282&#34;&gt;Multilingual Neural Machine Transliteration with Adaptive Segmentation Schemes&lt;/a&gt;. IALP(2022).&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
 </rss>

@@ -2,76 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ethanyklei.github.io/en/about/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://ethanyklei.github.io/about/"
-                />
+    <loc>http://localhost:1313/en/about/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ethanyklei.github.io/en/about/"
+                href="http://localhost:1313/en/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/about/"
                 />
   </url><url>
-    <loc>https://ethanyklei.github.io/en/blogs/</loc>
+    <loc>http://localhost:1313/en/blogs/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ethanyklei.github.io/blogs/"
+                href="http://localhost:1313/zh-cn/blogs/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ethanyklei.github.io/en/blogs/"
+                href="http://localhost:1313/en/blogs/"
                 />
   </url><url>
-    <loc>https://ethanyklei.github.io/en/categories/</loc>
+    <loc>http://localhost:1313/en/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/en/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ethanyklei.github.io/categories/"
+                href="http://localhost:1313/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ethanyklei.github.io/en/categories/"
+                href="http://localhost:1313/en/"
                 />
   </url><url>
-    <loc>https://ethanyklei.github.io/en/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://ethanyklei.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ethanyklei.github.io/en/"
-                />
+    <loc>http://localhost:1313/en/publication/</loc>
   </url><url>
-    <loc>https://ethanyklei.github.io/en/publications/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://ethanyklei.github.io/publications/"
-                />
+    <loc>http://localhost:1313/en/publications/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ethanyklei.github.io/en/publications/"
+                href="http://localhost:1313/en/publications/"
                 />
-  </url><url>
-    <loc>https://ethanyklei.github.io/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ethanyklei.github.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ethanyklei.github.io/en/tags/"
+                href="http://localhost:1313/publications/"
                 />
   </url>
 </urlset>
