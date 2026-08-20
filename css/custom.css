@@ -1,0 +1,298 @@
+@font-face {
+  font-family: "YHXXMYJ";
+  src: url("/fonts/YHXXMYJ.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html[lang="zh-cn"] body {
+  font-family: "YHXXMYJ", "Space Grotesk", sans-serif;
+}
+
+.quote-decorated {
+  position: relative;
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 36px 30px;
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+html.dark .quote-decorated {
+  background: #1a1a1a;
+  border-color: #404040;
+  box-shadow: none;
+}
+
+.quote-decorated p {
+  margin: 0 0 14px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #262626;
+}
+
+html.dark .quote-decorated p {
+  color: #f5f5f5;
+}
+
+.quote-decorated .author {
+  display: block;
+  text-align: right;
+  color: #525252;
+}
+
+html.dark .quote-decorated .author {
+  color: #a3a3a3;
+}
+
+html[lang="zh-cn"] .quote-decorated p,
+html[lang="zh-cn"] .quote-decorated .author {
+  font-family: STKaiti, "Kaiti SC", "KaiTi", serif;
+}
+
+html[lang="en"] .quote-decorated p,
+html[lang="en"] .quote-decorated .author {
+  font-family: "Nothing You Could Do", Georgia, serif;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .quote-decorated {
+    margin: 20px 0;
+    padding: 28px 20px;
+  }
+
+  .quote-decorated p {
+    font-size: 1.05rem;
+  }
+}
+
+.experience-timeline {
+  --timeline-accent: #f7663c;
+  --timeline-ink: #262626;
+  --timeline-muted: #525252;
+  --timeline-border: rgba(125, 135, 150, 0.24);
+  --timeline-role-bg: #4a413a;
+  --timeline-role-ink: #fff;
+  margin: 34px 0 12px;
+}
+
+html.dark .experience-timeline {
+  --timeline-ink: #f5f5f5;
+  --timeline-muted: #a3a3a3;
+  --timeline-border: rgba(209, 217, 230, 0.16);
+  --timeline-role-bg: rgba(255, 255, 255, 0.12);
+  --timeline-role-ink: #f5f5f5;
+}
+
+.experience-timeline .timeline {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.experience-timeline .timeline-item {
+  align-items: flex-start;
+  border-bottom: 1px solid var(--timeline-border);
+  display: flex;
+  gap: 32px;
+  padding: 24px 0;
+}
+
+.experience-timeline .timeline-item:first-child {
+  padding-top: 0;
+}
+
+.experience-timeline .timeline-item:last-child {
+  border-bottom: 0;
+}
+
+.experience-timeline .timeline-date {
+  color: var(--timeline-muted);
+  flex-shrink: 0;
+  font-family: ui-monospace, "SFMono-Regular", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-top: 3px;
+  width: 150px;
+  white-space: nowrap;
+}
+
+.experience-timeline .timeline-content {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.experience-timeline .timeline-title {
+  color: var(--timeline-ink);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+
+.experience-timeline .now-badge {
+  align-items: center;
+  background: var(--timeline-accent);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.68rem;
+  font-weight: 700;
+  height: 20px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-left: 8px;
+  padding: 0 8px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.experience-timeline .timeline-position {
+  align-items: center;
+  background: var(--timeline-role-bg);
+  border-radius: 999px;
+  color: var(--timeline-role-ink);
+  display: inline-flex;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0 0 8px;
+  min-height: 24px;
+  padding: 0 10px;
+}
+
+.experience-timeline .timeline-description {
+  color: var(--timeline-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 4px 0 0;
+}
+
+@media (max-width: 720px) {
+  .experience-timeline {
+    margin-top: 30px;
+  }
+
+  .experience-timeline .timeline-item {
+    flex-direction: column;
+    gap: 6px;
+    padding: 22px 0;
+  }
+
+  .experience-timeline .timeline-date {
+    padding-top: 0;
+    width: auto;
+  }
+
+  .experience-timeline .timeline-position {
+    margin-bottom: 7px;
+  }
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+header {
+  view-transition-name: site-header;
+}
+
+main {
+  view-transition-name: site-main;
+}
+
+::view-transition-group(site-header) {
+  z-index: 20;
+}
+
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(site-main),
+::view-transition-new(site-main) {
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(site-main) {
+  animation: page-out 160ms ease-out both;
+}
+
+::view-transition-new(site-main) {
+  animation: page-in 220ms ease-out both;
+}
+
+html:active-view-transition-type(nav-forward) ::view-transition-old(site-main) {
+  animation: page-out-left 180ms ease-out both;
+}
+
+html:active-view-transition-type(nav-forward) ::view-transition-new(site-main) {
+  animation: page-in-right 220ms ease-out both;
+}
+
+html:active-view-transition-type(nav-back) ::view-transition-old(site-main) {
+  animation: page-out-right 180ms ease-out both;
+}
+
+html:active-view-transition-type(nav-back) ::view-transition-new(site-main) {
+  animation: page-in-left 220ms ease-out both;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes page-out-left {
+  to {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+}
+
+@keyframes page-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+
+@keyframes page-out-right {
+  to {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+
+@keyframes page-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}

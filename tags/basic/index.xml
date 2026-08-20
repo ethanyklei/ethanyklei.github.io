@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Basic on EthanLei</title>
+		<link>http://localhost:1313/tags/basic/</link>
+		<description>Recent content in Basic on EthanLei</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 02 Nov 2024 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/basic/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Loss计算技巧之Logsumexp</title>
+				<link>http://localhost:1313/blogs/posts/loss%E8%AE%A1%E7%AE%97%E6%8A%80%E5%B7%A7%E4%B9%8Blogsumexp/</link>
+				<pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/blogs/posts/loss%E8%AE%A1%E7%AE%97%E6%8A%80%E5%B7%A7%E4%B9%8Blogsumexp/</guid>
+				<description>&lt;p&gt;在现在的深度学习中，我们经常会使用“Softmax+CrossEntropy”来计算模型的损失。&#xA;假定我们的预测标签有$N$个（也就是词表的大小），其中$t$为目标标签，则模型的损失函数可以表示为：&#xA;$$&#xA;\mathcal{L} = -\log{\frac{e^{x_t}}{\sum_{i=1}^{N}e^{x_i}}}&#xA;$$&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

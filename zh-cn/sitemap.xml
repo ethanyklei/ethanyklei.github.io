@@ -2,18 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ethanyklei.github.io/zh-cn/blogs/</loc>
+    <loc>https://ethanyklei.github.io/tags/agent/</loc>
     <lastmod>2026-03-08T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://ethanyklei.github.io/zh-cn/blogs/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ethanyklei.github.io/en/blogs/"
-                />
   </url><url>
     <loc>https://ethanyklei.github.io/</loc>
     <lastmod>2026-03-08T00:00:00+00:00</lastmod>
@@ -31,7 +21,39 @@
     <loc>https://ethanyklei.github.io/blogs/posts/pi_arch/</loc>
     <lastmod>2026-03-08T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://ethanyklei.github.io/tags/</loc>
+    <lastmod>2026-03-08T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ethanyklei.github.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ethanyklei.github.io/en/tags/"
+                />
+  </url><url>
+    <loc>https://ethanyklei.github.io/tags/tech/</loc>
+    <lastmod>2026-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ethanyklei.github.io/blogs/</loc>
+    <lastmod>2026-03-08T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ethanyklei.github.io/blogs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ethanyklei.github.io/en/blogs/"
+                />
+  </url><url>
     <loc>https://ethanyklei.github.io/blogs/posts/2025_year_end_review/</loc>
+    <lastmod>2026-01-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ethanyklei.github.io/tags/life/</loc>
     <lastmod>2026-01-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ethanyklei.github.io/blogs/posts/2025_mid-year_review/</loc>
@@ -43,28 +65,43 @@
     <loc>https://ethanyklei.github.io/blogs/posts/policy_gradient_algorithem/</loc>
     <lastmod>2024-10-21T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://ethanyklei.github.io/tags/rl/</loc>
+    <lastmod>2024-10-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ethanyklei.github.io/about/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ethanyklei.github.io/en/about/"
-                />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://ethanyklei.github.io/about/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ethanyklei.github.io/en/about/"
+                />
+  </url><url>
+    <loc>https://ethanyklei.github.io/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ethanyklei.github.io/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ethanyklei.github.io/en/categories/"
+                />
   </url><url>
     <loc>https://ethanyklei.github.io/publications/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://ethanyklei.github.io/en/publications/"
+                hreflang="zh-cn"
+                href="https://ethanyklei.github.io/publications/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
-                href="https://ethanyklei.github.io/publications/"
+                hreflang="en"
+                href="https://ethanyklei.github.io/en/publications/"
                 />
   </url>
 </urlset>

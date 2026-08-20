@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Agent on EthanLei</title>
+		<link>https://ethanyklei.github.io/tags/agent/</link>
+		<description>Recent content in Agent on EthanLei</description>
+		<generator>Hugo</generator>
+		<language>zh-cn</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 08 Mar 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://ethanyklei.github.io/tags/agent/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>OpenClaw 的框架内核：Pi</title>
+				<link>https://ethanyklei.github.io/blogs/posts/pi_arch/</link>
+				<pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
+				<guid>https://ethanyklei.github.io/blogs/posts/pi_arch/</guid>
+				<description>&lt;p&gt;在 AI Agent 领域，大家很容易陷入一种“堆料”思路：工具越来越多，配置越来越复杂，系统越来越像一台难以维护的巨型机器。&lt;/p&gt;&#xA;&lt;p&gt;Pi 反其道而行。它选择做减法，把框架压缩到最小，只保留真正必要的部分。&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>
